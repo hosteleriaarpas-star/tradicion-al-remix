@@ -415,11 +415,13 @@ a {
 .media-grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: start;
   gap: 12px;
 }
 
 .media-card {
   grid-column: span 4;
+  align-self: start;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius);
