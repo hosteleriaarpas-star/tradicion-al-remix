@@ -331,7 +331,7 @@ function renderHome() {
     <section class="section-body">
       <div class="cards-grid">
         ${homeCard("tradicion-extremena", "Tradición musical extremeña", "Navidad, romerías, bailes e instrumentos.", photo("bailes tradicionales/IMG_7055"))}
-        ${homeCard("palabra-remix", "Palabra y remix", "Poesía, rap recitado y voz contemporánea.", poster("rap y palabra/b1be4103-325e-48ed-8dab-ed54cb6b302d.MP4"))}
+        ${homeCard("palabra-remix", "Palabra y remix", "Poesía, rap recitado y voz contemporánea.", photo("rap y palabra/PORTADA"))}
         ${homeCard("erasmus", "Tradiciones que viajan", "Eslovenia, Isla Reunión y Tahití.", poster("Tahití/IMG_8255.MOV"))}
         ${homeCard("erasmus/etwinning", "eTwinning Cultural Echoes", "Patrimonio compartido y red internacional.", photo("etwinning cultural echoes/PHOTO-2026-05-25-17-08-54"))}
       </div>
