@@ -411,6 +411,10 @@ a {
   aspect-ratio: 16 / 9;
 }
 
+.media-card--video {
+  background: #111;
+}
+
 .media-card img,
 .media-card video {
   width: 100%;
@@ -443,26 +447,6 @@ a {
   white-space: nowrap;
 }
 
-.media-card__actions {
-  display: inline-flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 10px;
-}
-
-.media-button {
-  border: 0;
-  padding: 0;
-  background: transparent;
-  color: var(--teal);
-  font: inherit;
-  font-size: 0.84rem;
-  font-weight: 800;
-  cursor: pointer;
-}
-
-.media-button:hover,
 .media-card__body a:hover {
   text-decoration: underline;
 }

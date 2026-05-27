@@ -457,13 +457,6 @@ function videoCard(path, label) {
           <source src="${mediaFile(path)}">
         </video>
       </div>
-      <figcaption class="media-card__body">
-        <strong>Vídeo</strong>
-        <span class="media-card__actions">
-          <button class="media-button" type="button" data-fullscreen-video>Pantalla completa</button>
-          <a href="${mediaFile(path)}" target="_blank" rel="noreferrer">Abrir archivo</a>
-        </span>
-      </figcaption>
     </figure>
   `;
 }
@@ -562,11 +555,6 @@ document.addEventListener("click", (event) => {
     return;
   }
 
-  const fullscreenButton = event.target.closest("[data-fullscreen-video]");
-  if (fullscreenButton) {
-    const video = fullscreenButton.closest(".media-card")?.querySelector("video");
-    enterVideoFullscreen(video);
-  }
 });
 
 document.addEventListener("keydown", (event) => {
