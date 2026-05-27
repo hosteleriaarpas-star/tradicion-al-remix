@@ -164,9 +164,29 @@ const pages = {
   },
   erasmus: {
     eyebrow: "Músicas que viajan",
-    title: "Tradiciones que viajan: Erasmus",
-    lead: "Eslovenia, Isla Reunión y Tahití abren el proyecto a una lectura internacional de la música, la identidad y el intercambio cultural.",
+    title: "Tradiciones que viajan: Erasmus y eTwinning",
+    lead: "Erasmus y eTwinning abren el proyecto a una lectura internacional de la música, la identidad, el patrimonio compartido y el intercambio cultural.",
     subsections: [
+      {
+        id: "etwinning",
+        title: "eTwinning: Cultural Echoes 2026",
+        summary: "Proyecto eTwinning 2025-26 Cultural Echoes: Unseen Threads, Shared Heritage, centrado en descubrir vínculos culturales y patrimonio compartido.",
+        tradition: "Patrimonio cultural, memoria, tradiciones locales y ecos comunes entre comunidades educativas internacionales.",
+        present: "La colaboración digital permite compartir presentaciones, evidencias, certificados y materiales creados por el alumnado con una red de países: España, Italia, Grecia, Francia, Turquía y Jordania, con siete participaciones internacionales.",
+        result: "El alumnado sitúa su tradición en diálogo con otras culturas y comprende que el patrimonio también se construye desde la colaboración online.",
+        tags: ["eTwinning", "Cultural Echoes", "7 países"],
+        photos: [
+          "etwinning cultural echoes/PHOTO-2026-05-25-17-08-54",
+          "etwinning cultural echoes/PHOTO-2026-05-25-17-08-54 2"
+        ],
+        videos: [],
+        links: [
+          {
+            label: "Abrir Cultural Echoes 2026",
+            href: "https://www.emaze.com/@ALFTTLQTR/cultural-echoes-2026"
+          }
+        ]
+      },
       {
         id: "eslovenia",
         title: "Eslovenia: OŠ Ivana Cankarja Ljutomer",
@@ -252,14 +272,25 @@ const pages = {
     subsections: [
       {
         id: "laboratorio",
-        title: "Laboratorio de sonido y producción",
-        summary: "Espacio para convertir repertorios tradicionales en piezas actuales mediante grabación, mezcla, edición y producción audiovisual.",
-        tradition: "Canciones, ritmos, voces e instrumentos recopilados en las actividades del proyecto.",
-        present: "Audacity, DaVinci Resolve, Canva, BandLab, micrófonos, auriculares y cámaras ayudan a transformar la tradición en producto creativo.",
-        result: "El alumnado asume roles de letrista, intérprete, técnico de sonido, editor y productor, desarrollando autonomía y competencia digital.",
-        tags: ["Audio", "Vídeo", "Competencia digital"],
-        photos: [],
-        videos: []
+        title: "SoundLab Arroyo Harnina",
+        summary: "Grupo de trabajo y laboratorio de aula para aprender producción sonora, grabación, podcast, mesa de mezclas, DAW y sonorización básica.",
+        tradition: "Canciones, voces, instrumentos y repertorios trabajados en el proyecto, preparados para registrarse y transformarse con herramientas sonoras actuales.",
+        present: "El aula se organiza como un pequeño estudio: microfonía, interfaz, mesa, Audacity, BandLab, REAPER, guías rápidas, plantillas de sesión y rúbricas competenciales.",
+        result: "SoundLab da soporte técnico-pedagógico al proyecto, permite crear materiales reutilizables y reparte roles de sonido, interpretación, guion, edición y coordinación.",
+        tags: ["SoundLab", "Podcast", "DAW", "REAPER"],
+        photos: [
+          "soundlabarroyoharnina/IMG_9258",
+          "soundlabarroyoharnina/IMG_9260",
+          "soundlabarroyoharnina/IMG_9612",
+          "soundlabarroyoharnina/IMG_9614"
+        ],
+        videos: [
+          "soundlabarroyoharnina/IMG_9481.MOV",
+          "soundlabarroyoharnina/IMG_9483.MOV",
+          "soundlabarroyoharnina/IMG_9485.MOV",
+          "soundlabarroyoharnina/IMG_9613.MOV",
+          "soundlabarroyoharnina/IMG_9615.MOV"
+        ]
       }
     ]
   }
@@ -305,6 +336,7 @@ function renderHome() {
         ${homeCard("tradicion-extremena", "Tradición musical extremeña", "Navidad, romerías, bailes e instrumentos.", photo("bailes tradicionales/IMG_7055"))}
         ${homeCard("palabra-remix", "Palabra y remix", "Poesía, rap recitado y voz contemporánea.", poster("rap y palabra/b1be4103-325e-48ed-8dab-ed54cb6b302d.MP4"))}
         ${homeCard("erasmus", "Tradiciones que viajan", "Eslovenia, Isla Reunión y Tahití.", photo("Tahití/IMG_8628"))}
+        ${homeCard("erasmus/etwinning", "eTwinning Cultural Echoes", "Patrimonio compartido y red internacional.", photo("etwinning cultural echoes/PHOTO-2026-05-25-17-08-54"))}
       </div>
     </section>
 
@@ -366,8 +398,18 @@ function renderSubsection(item) {
           </div>
         </div>
       </div>
+      ${renderLinks(item)}
       ${renderGallery(item)}
     </article>
+  `;
+}
+
+function renderLinks(item) {
+  if (!item.links?.length) return "";
+  return `
+    <div class="resource-links">
+      ${item.links.map((link) => `<a class="button" href="${link.href}" target="_blank" rel="noreferrer">${link.label}</a>`).join("")}
+    </div>
   `;
 }
 
