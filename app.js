@@ -248,10 +248,7 @@ const pages = {
         present: "Las imágenes y vídeos ayudan a comparar lenguajes tradicionales con formas contemporáneas de documentación.",
         result: "Tahití amplía la web como memoria visual de músicas y culturas en movimiento.",
         tags: ["Erasmus", "Tahití", "Viaje"],
-        photos: [
-          "Tahití/IMG_8628",
-          "Tahití/IMG_8629"
-        ],
+        photos: [],
         videos: [
           "Tahití/IMG_7971.MOV",
           "Tahití/IMG_8255.MOV",
@@ -335,7 +332,7 @@ function renderHome() {
       <div class="cards-grid">
         ${homeCard("tradicion-extremena", "Tradición musical extremeña", "Navidad, romerías, bailes e instrumentos.", photo("bailes tradicionales/IMG_7055"))}
         ${homeCard("palabra-remix", "Palabra y remix", "Poesía, rap recitado y voz contemporánea.", poster("rap y palabra/b1be4103-325e-48ed-8dab-ed54cb6b302d.MP4"))}
-        ${homeCard("erasmus", "Tradiciones que viajan", "Eslovenia, Isla Reunión y Tahití.", photo("Tahití/IMG_8628"))}
+        ${homeCard("erasmus", "Tradiciones que viajan", "Eslovenia, Isla Reunión y Tahití.", poster("Tahití/IMG_8255.MOV"))}
         ${homeCard("erasmus/etwinning", "eTwinning Cultural Echoes", "Patrimonio compartido y red internacional.", photo("etwinning cultural echoes/PHOTO-2026-05-25-17-08-54"))}
       </div>
     </section>
