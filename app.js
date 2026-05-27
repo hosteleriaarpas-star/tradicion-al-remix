@@ -15,6 +15,7 @@ const pages = {
     eyebrow: "Patrimonio cercano",
     title: "Tradición musical extremeña",
     lead: "Recorrido por canciones, fiestas, bailes e instrumentos que conectan el aula con la memoria cultural de Extremadura.",
+    cover: photo("bailes tradicionales/IMG_7055"),
     subsections: [
       {
         id: "navidad",
@@ -119,6 +120,7 @@ const pages = {
     eyebrow: "Lengua, ritmo y voz",
     title: "De la palabra tradicional al remix",
     lead: "La poesía, el recitado y la palabra popular se convierten en materia rítmica para trabajar rap, interpretación y creación sonora.",
+    cover: photo("rap y palabra/PORTADA"),
     subsections: [
       {
         id: "poesia",
@@ -148,6 +150,7 @@ const pages = {
     eyebrow: "Red nacional",
     title: "Burgos - Instituto Diego Porcelos",
     lead: "Colaboración nacional para comparar repertorios, danzas y formas de transmisión musical con el IES Conde Diego Porcelos de Burgos.",
+    cover: photo("burgos/portada"),
     subsections: [
       {
         id: "burgos",
@@ -166,6 +169,7 @@ const pages = {
     eyebrow: "Músicas que viajan",
     title: "Tradiciones que viajan: Erasmus y eTwinning",
     lead: "Erasmus y eTwinning abren el proyecto a una lectura internacional de la música, la identidad, el patrimonio compartido y el intercambio cultural.",
+    cover: photo("Tahití/Portada"),
     subsections: [
       {
         id: "etwinning",
@@ -266,6 +270,7 @@ const pages = {
     eyebrow: "Creación digital",
     title: "SoundLab",
     lead: "Laboratorio de sonido, grabación, edición, herramientas digitales, micrófonos, luces, bases musicales y modernización de la tradición.",
+    cover: photo("soundlabarroyoharnina/IMG_9258"),
     subsections: [
       {
         id: "laboratorio",
@@ -358,8 +363,9 @@ function homeCard(hash, title, text, image) {
 
 function renderPage(key) {
   const page = pages[key] || pages["tradicion-extremena"];
+  const cover = page.cover || photo("Portada");
   return `
-    <section class="section-hero">
+    <section class="section-hero" style="--section-hero-image: url('${cover}')">
       <div class="section-hero__inner">
         <p class="eyebrow">${page.eyebrow}</p>
         <h1>${page.title}</h1>

@@ -287,8 +287,16 @@ a {
 }
 
 .section-hero {
-  padding: clamp(48px, 9vw, 106px) clamp(18px, 4vw, 48px) clamp(36px, 7vw, 84px);
-  background: linear-gradient(110deg, #f8efe5, #eef1eb 58%, #e8f0f1);
+  min-height: clamp(360px, 52vh, 560px);
+  display: flex;
+  align-items: flex-end;
+  padding: clamp(70px, 11vw, 140px) clamp(18px, 4vw, 48px) clamp(42px, 7vw, 88px);
+  color: #fff;
+  background-image:
+    linear-gradient(90deg, rgba(18, 24, 23, 0.82), rgba(18, 24, 23, 0.5) 48%, rgba(18, 24, 23, 0.22)),
+    var(--section-hero-image);
+  background-size: cover;
+  background-position: center;
 }
 
 .section-hero__inner,
@@ -300,8 +308,19 @@ a {
 .section-hero p {
   max-width: 820px;
   margin: 20px 0 0;
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.9);
   font-size: clamp(1.02rem, 1.7vw, 1.22rem);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+}
+
+.section-hero .eyebrow {
+  color: #ffe36e;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.section-hero h1 {
+  color: #fff;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
 }
 
 .section-body {
