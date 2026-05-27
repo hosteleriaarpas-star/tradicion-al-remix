@@ -213,8 +213,14 @@ a {
 }
 
 .button--ghost {
-  background: transparent;
-  border-color: rgba(255, 255, 255, 0.45);
+  background: #fff;
+  border-color: #fff;
+  color: var(--clay);
+}
+
+.button--ghost:hover {
+  background: #fff6f3;
+  color: var(--clay-dark);
 }
 
 .intro-band {
