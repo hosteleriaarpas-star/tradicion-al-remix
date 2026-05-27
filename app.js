@@ -146,8 +146,8 @@ const pages = {
   },
   espana: {
     eyebrow: "Red nacional",
-    title: "Tradiciones en otras partes de España",
-    lead: "La mirada se amplía a otros centros para comparar repertorios, danzas y formas de transmisión musical en distintos territorios.",
+    title: "Burgos - Instituto Diego Porcelos",
+    lead: "Colaboración nacional para comparar repertorios, danzas y formas de transmisión musical con el IES Conde Diego Porcelos de Burgos.",
     subsections: [
       {
         id: "burgos",
