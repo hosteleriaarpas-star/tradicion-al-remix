@@ -438,12 +438,12 @@ function photoCard(path, label) {
   const src = photo(path);
   return `
     <figure class="media-card media-card--photo">
-      <a class="media-card__frame" href="${src}" target="_blank" rel="noreferrer">
+      <a class="media-card__frame" href="${src}" data-lightbox-src="${src}" data-lightbox-label="${label}">
         <img src="${src}" alt="${label}" loading="lazy">
       </a>
       <figcaption class="media-card__body">
         <strong>Foto</strong>
-        <a href="${src}" target="_blank" rel="noreferrer">Abrir</a>
+        <a href="${src}" data-lightbox-src="${src}" data-lightbox-label="${label}">Ver grande</a>
       </figcaption>
     </figure>
   `;
@@ -459,10 +459,54 @@ function videoCard(path, label) {
       </div>
       <figcaption class="media-card__body">
         <strong>Vídeo</strong>
-        <a href="${mediaFile(path)}" target="_blank" rel="noreferrer">Abrir archivo</a>
+        <span class="media-card__actions">
+          <button class="media-button" type="button" data-fullscreen-video>Pantalla completa</button>
+          <a href="${mediaFile(path)}" target="_blank" rel="noreferrer">Abrir archivo</a>
+        </span>
       </figcaption>
     </figure>
   `;
+}
+
+function ensureLightbox() {
+  let lightbox = document.querySelector(".lightbox");
+  if (lightbox) return lightbox;
+
+  document.body.insertAdjacentHTML("beforeend", `
+    <div class="lightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada" hidden>
+      <button class="lightbox__close" type="button" aria-label="Cerrar imagen ampliada">Cerrar</button>
+      <img class="lightbox__image" alt="">
+    </div>
+  `);
+  return document.querySelector(".lightbox");
+}
+
+function openLightbox(src, label) {
+  const lightbox = ensureLightbox();
+  const image = lightbox.querySelector(".lightbox__image");
+  image.src = src;
+  image.alt = label || "Imagen ampliada";
+  lightbox.hidden = false;
+  document.body.classList.add("is-lightbox-open");
+  lightbox.querySelector(".lightbox__close").focus();
+}
+
+function closeLightbox() {
+  const lightbox = document.querySelector(".lightbox");
+  if (!lightbox || lightbox.hidden) return;
+  lightbox.hidden = true;
+  lightbox.querySelector(".lightbox__image").removeAttribute("src");
+  document.body.classList.remove("is-lightbox-open");
+}
+
+function enterVideoFullscreen(video) {
+  if (!video) return;
+  if (video.webkitEnterFullscreen) {
+    video.webkitEnterFullscreen();
+    return;
+  }
+  const target = video.closest(".media-card__frame") || video;
+  target.requestFullscreen?.();
 }
 
 function currentRoute() {
@@ -504,6 +548,37 @@ document.querySelector(".nav-toggle")?.addEventListener("click", () => {
   const isOpen = nav.classList.toggle("is-open");
   document.querySelector(".nav-toggle").setAttribute("aria-expanded", String(isOpen));
 });
+
+document.addEventListener("click", (event) => {
+  const lightboxLink = event.target.closest("[data-lightbox-src]");
+  if (lightboxLink) {
+    event.preventDefault();
+    openLightbox(lightboxLink.dataset.lightboxSrc, lightboxLink.dataset.lightboxLabel);
+    return;
+  }
+
+  if (event.target.closest(".lightbox__close") || event.target.classList.contains("lightbox")) {
+    closeLightbox();
+    return;
+  }
+
+  const fullscreenButton = event.target.closest("[data-fullscreen-video]");
+  if (fullscreenButton) {
+    const video = fullscreenButton.closest(".media-card")?.querySelector("video");
+    enterVideoFullscreen(video);
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") closeLightbox();
+});
+
+document.addEventListener("play", (event) => {
+  if (event.target.tagName !== "VIDEO") return;
+  document.querySelectorAll("video").forEach((video) => {
+    if (video !== event.target) video.pause();
+  });
+}, true);
 
 window.addEventListener("hashchange", render);
 render();
