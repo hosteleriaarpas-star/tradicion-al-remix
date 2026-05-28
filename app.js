@@ -105,13 +105,13 @@ const pages = {
         result: "El alumnado reconoce el instrumento como tecnología cultural: una herramienta para crear, acompañar y transmitir memoria.",
         tags: ["Instrumentos", "Timbre", "Exposición"],
         photos: [
-          "Exposición de instrumentos tradicionales/IMG_7081",
-          "Exposición de instrumentos tradicionales/IMG_7082",
-          "Exposición de instrumentos tradicionales/IMG_7086"
+          "Exposicion de instrumentos tradicionales/IMG_7081",
+          "Exposicion de instrumentos tradicionales/IMG_7082",
+          "Exposicion de instrumentos tradicionales/IMG_7086"
         ],
         videos: [
-          "Exposición de instrumentos tradicionales/IMG_7083.MOV",
-          "Exposición de instrumentos tradicionales/IMG_7084.MOV"
+          "Exposicion de instrumentos tradicionales/IMG_7083.MOV",
+          "Exposicion de instrumentos tradicionales/IMG_7084.MOV"
         ]
       }
     ]
@@ -169,7 +169,7 @@ const pages = {
     eyebrow: "Músicas que viajan",
     title: "Tradiciones que viajan: Erasmus y eTwinning",
     lead: "Erasmus y eTwinning abren el proyecto a una lectura internacional de la música, la identidad, el patrimonio compartido y el intercambio cultural.",
-    cover: photo("Tahití/Portada"),
+    cover: photo("Tahiti/Portada"),
     subsections: [
       {
         id: "etwinning",
@@ -238,10 +238,10 @@ const pages = {
         tags: ["Erasmus", "Isla Reunión", "Diversidad"],
         photos: [],
         videos: [
-          "isla reunión/IMG_7172.MOV",
-          "isla reunión/IMG_7181.MOV",
-          "isla reunión/IMG_7182.MOV",
-          "isla reunión/IMG_7187.MOV"
+          "isla reunion/IMG_7172.MOV",
+          "isla reunion/IMG_7181.MOV",
+          "isla reunion/IMG_7182.MOV",
+          "isla reunion/IMG_7187.MOV"
         ]
       },
       {
@@ -254,14 +254,14 @@ const pages = {
         tags: ["Erasmus", "Tahití", "Viaje"],
         photos: [],
         videos: [
-          "Tahití/IMG_7971.MOV",
-          "Tahití/IMG_8255.MOV",
-          "Tahití/IMG_8387.mov",
-          "Tahití/IMG_8392.MOV",
-          "Tahití/IMG_8755.mov",
-          "Tahití/IMG_8804.MOV",
-          "Tahití/IMG_8813.MOV",
-          "Tahití/IMG_8952.MOV"
+          "Tahiti/IMG_7971.MOV",
+          "Tahiti/IMG_8255.MOV",
+          "Tahiti/IMG_8387.mov",
+          "Tahiti/IMG_8392.MOV",
+          "Tahiti/IMG_8755.mov",
+          "Tahiti/IMG_8804.MOV",
+          "Tahiti/IMG_8813.MOV",
+          "Tahiti/IMG_8952.MOV"
         ]
       }
     ]
@@ -337,7 +337,7 @@ function renderHome() {
       <div class="cards-grid">
         ${homeCard("tradicion-extremena", "Tradición musical extremeña", "Navidad, romerías, bailes e instrumentos.", photo("bailes tradicionales/IMG_7055"))}
         ${homeCard("palabra-remix", "Palabra y remix", "Poesía, rap recitado y voz contemporánea.", photo("rap y palabra/PORTADA"))}
-        ${homeCard("erasmus", "Tradiciones que viajan", "Eslovenia, Isla Reunión y Tahití.", photo("Tahití/Portada"))}
+        ${homeCard("erasmus", "Tradiciones que viajan", "Eslovenia, Isla Reunión y Tahití.", photo("Tahiti/Portada"))}
         ${homeCard("erasmus/etwinning", "eTwinning Cultural Echoes", "Patrimonio compartido y red internacional.", photo("etwinning cultural echoes/PHOTO-2026-05-25-17-08-54"))}
       </div>
     </section>
