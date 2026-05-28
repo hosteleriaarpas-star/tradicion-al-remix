@@ -1,6 +1,6 @@
 const photo = (path) => encodeURI(`assets/media/photos/${path}.jpg`);
 const poster = (path) => encodeURI(`assets/media/posters/${path.replace(/\.[^.]+$/, "")}.jpg`);
-const mediaFile = (path) => encodeURI(path);
+const mediaFile = (path) => encodeURI(`assets/media/videos/${path.replace(/\.[^.]+$/, ".mp4")}`);
 
 const fixedSteps = [
   ["Presentación", "Qué se hizo y por qué forma parte del proyecto."],
