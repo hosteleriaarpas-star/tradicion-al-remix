@@ -52,13 +52,22 @@ const pages = {
       {
         id: "semana-santa",
         title: "Semana Santa",
-        summary: "Interpretación de marchas procesionales en conciertos del instituto y ante el alumnado visitante de Isla Reunión.",
-        tradition: "Marchas procesionales y patrimonio musical vinculado a la Semana Santa.",
-        present: "Las grabaciones se trabajan desde el SoundLab mediante remasterización, tratamiento musical y técnicas propias del DJ.",
-        result: "La tradición procesional se comparte y se actualiza mediante interpretación, grabación y producción digital.",
-        tags: ["Semana Santa", "DJ", "SoundLab"],
+        summary: "Trabajo completo sobre la marcha “Mi amargura”, desde su interpretación en directo hasta la grabación por pistas y la creación de un remix.",
+        tradition: "La marcha procesional “Mi amargura” como parte del patrimonio musical de Semana Santa.",
+        present: "Interpretación, concierto, grabación en vídeo, grabación individual por pistas, montaje con Audacity y experimentación con la mesa de mezclas junto a DJ UNNAM.",
+        result: "El remix de “Mi amargura” resume la idea central del proyecto: interpretar una tradición, analizarla y abrirla a nuevas posibilidades mediante la producción sonora actual.",
+        detailsTitle: "De la interpretación al remix de “Mi amargura”",
+        details: [
+          "En esta sección recogemos el trabajo realizado en torno a la música de Semana Santa, especialmente a través de la interpretación de la marcha “Mi amargura”. Esta pieza fue trabajada en el aula y presentada en un concierto en el instituto para el alumnado visitante del Lycée Jean Joly de Isla Reunión, convirtiéndose en una forma de compartir una parte importante de nuestro patrimonio musical.",
+          "El proceso tuvo varias fases. Primero realizamos una grabación sencilla en vídeo, todavía sin utilizar los medios técnicos del SoundLab. Más adelante, realizamos una segunda grabación solo de audio, aplicando técnicas aprendidas en el laboratorio: grabación por pistas individuales, escucha, revisión y montaje posterior con Audacity.",
+          "Además, contamos con la colaboración de un antiguo alumno, Manu, cuyo nombre artístico es DJ UNNAM. Durante su visita, mostró el funcionamiento de una mesa de mezclas, realizó una demostración práctica y permitió que el alumnado experimentara directamente con los controles. A partir de este trabajo preparó un remix de la marcha, uno de los resultados más esperados del curso.",
+          "Esta actividad resume muy bien la idea de “De la tradición al Remix”: partir de una música tradicional, interpretarla, grabarla, analizarla y abrirla a nuevas posibilidades mediante herramientas digitales y técnicas actuales de producción sonora."
+        ],
+        evidenceNote: "Este vídeo recoge una de las primeras evidencias del trabajo realizado con “Mi amargura”, interpretada en concierto antes de iniciar el proceso más técnico de grabación y mezcla en el SoundLab. Sirve como punto de partida para observar la evolución posterior del proyecto: de la interpretación en directo a la grabación por pistas, el montaje digital y el remix.",
+        tags: ["Mi amargura", "DJ UNNAM", "SoundLab"],
         photos: ["Semana santa/portada"],
         videos: [
+          "Semana santa/VIDEO-2026-06-02-20-02-03.mp4",
           "Semana santa/IMG_9781.MOV",
           "Semana santa/IMG_9782.MOV"
         ],
@@ -76,6 +85,11 @@ const pages = {
         tradition: "La Gira, interpretada con instrumentos de aula y elementos vinculados a la tradición musical extremeña.",
         present: "Los ensayos, las grabaciones individuales y la producción con Ejel Estudio permiten aprender también de las pruebas y los errores.",
         result: "El proceso prepara un audio final compartible y acerca al alumnado a una música muy presente en su entorno.",
+        detailsTitle: "Mix de “La Gira”",
+        details: [
+          "Como parte del trabajo sobre romerías y fiestas populares, hemos preparado también un mix de “La Gira”, una de las canciones más populares y representativas de Almendralejo. Esta pista forma parte del proceso de actualización de la tradición dentro de “De la tradición al Remix”.",
+          "El objetivo es mostrar cómo una canción muy vinculada a nuestro entorno puede reinterpretarse mediante recursos actuales de grabación, edición y producción musical."
+        ],
         tags: ["Fiesta popular", "Comunidad", "Cuerpo"],
         photos: [],
         videos: [
@@ -85,6 +99,12 @@ const pages = {
           "romerias/IMG_6239.MOV",
           "romerias/IMG_6312.MOV",
           "romerias/IMG_6893.MOV"
+        ],
+        audios: [
+          {
+            path: "romerias/Mix de La Gira.mp3",
+            title: "Mix de “La Gira”"
+          }
         ]
       },
       {
@@ -140,7 +160,7 @@ const pages = {
       "En el proyecto “De la tradición al Remix” también hemos trabajado celebraciones internacionales cercanas al alumnado, como el Carnaval y Halloween.",
       "A través de la música, el movimiento, el inglés, la percusión, los materiales reciclados y la creación digital, el alumnado ha participado de forma activa en experiencias que unen tradición, creatividad y lenguajes actuales."
     ],
-    cover: photo("Tradicion internacional/portada"),
+    cover: photo("Tradicion internacional/portada-nueva"),
     subsections: [
       {
         id: "carnaval",
@@ -186,35 +206,46 @@ const pages = {
         id: "poesia",
         title: "Poesía antigua llevada a lenguajes actuales",
         summary: "A partir de “Negra sombra”, poema de Rosalía de Castro, trabajamos la poesía desde un lenguaje más cercano al alumnado actual.",
-        tradition: "Un texto clásico y su capacidad para seguir emocionando y comunicando en otros contextos.",
-        present: "Con la colaboración de la artista La Tachi, el alumnado trabaja la palabra poética desde el rap, el ritmo, la voz y la expresión contemporánea.",
-        result: "La poesía vuelve a cobrar vida en el aula y demuestra que también puede transformarse y formar parte de “De la tradición al Remix”.",
-        tags: ["Negra sombra", "La Tachi", "Rap"],
+        tradition: "“Negra sombra”, de Rosalía de Castro, y varias rimas de Gustavo Adolfo Bécquer.",
+        present: "La colaboración con La Tachi y la creación propia de Hugo y Javier acercan la poesía clásica a la voz, el rap, la grabación y la producción digital.",
+        result: "La poesía clásica encuentra nuevas formas de expresión conectadas con la sensibilidad contemporánea.",
+        detailsTitle: "Bécquer llevado a lenguajes actuales",
+        details: [
+          "Además del trabajo realizado con “Negra sombra”, esta sección incorpora una creación musical basada en varias rimas de Gustavo Adolfo Bécquer. La canción ha sido realizada por dos alumnos del instituto, Hugo y Javier, con producción y grabación propia.",
+          "Esta propuesta muestra cómo la poesía clásica puede encontrar una nueva forma de expresión cuando se acerca a los lenguajes musicales actuales. A través de la voz, la grabación y la producción digital, el alumnado transforma textos literarios en una creación propia, conectando la tradición poética con la sensibilidad contemporánea."
+        ],
+        tags: ["Negra sombra", "Bécquer", "La Tachi"],
         photos: [],
         videos: [
-          "rap y palabra/VIDEO-2026-06-02-18-20-10.mp4",
-          "rap y palabra/VIDEO-2026-06-02-18-21-05.mp4"
+          "rap y palabra/VIDEO-2026-06-02-18-21-05.mp4",
+          "rap y palabra/VIDEO-2026-06-02-22-20-40.mp4"
         ]
       },
       {
         id: "rap",
-        title: "Rap recitado: la voz del alumnado",
-        summary: "El alumnado ha trabajado el rap como forma actual de expresión oral y musical.",
-        tradition: "La oralidad, la voz, la rima y la creación compartida.",
-        present: "A partir de varias propuestas de letras, los alumnos y alumnas crean sus canciones y exploran ritmo, palabra e interpretación.",
-        result: "La actividad da protagonismo a la voz del alumnado y transforma la palabra en una creación musical cercana a su realidad.",
-        tags: ["Rap", "Rima", "Grabación"],
+        title: "Rap recitado",
+        summary: "El alumnado ha trabajado el rap como forma actual de expresión oral y musical, creando canciones propias y explorando ritmo, palabra, rima e interpretación.",
+        tradition: "La oralidad, la creatividad verbal y la creación musical compartida.",
+        present: "La sección reúne experiencias desarrolladas con La Tachi y con la Asociación Batalla de Gallos, acercando al alumnado a formas actuales de creación verbal, rítmica y escénica.",
+        result: "Aunque no parte directamente de una tradición concreta, conecta con el proyecto mediante la palabra, la creatividad y lenguajes cercanos al alumnado.",
+        detailsTitle: "Rap recitado",
+        details: [
+          "En esta actividad, el alumnado ha trabajado el rap como forma actual de expresión oral y musical. A partir de varias propuestas de letras, los propios alumnos y alumnas han creado sus canciones, explorando el ritmo, la palabra, la rima y la interpretación.",
+          "La sección recoge diferentes experiencias de creación vinculadas al rap. Una de ellas se ha desarrollado con la colaboración de La Tachi, y otra con la participación de la Asociación Batalla de Gallos, acercando al alumnado a formas actuales de creación verbal, rítmica y escénica.",
+          "Aunque estas propuestas no parten directamente de una tradición concreta, sí conectan con el espíritu del proyecto: trabajar la oralidad, la creatividad, la palabra y la creación musical desde lenguajes cercanos al alumnado."
+        ],
+        tags: ["Rap", "La Tachi", "Batalla de Gallos"],
         photos: [],
         videos: [
           "rap y palabra/b1be4103-325e-48ed-8dab-ed54cb6b302d.MP4",
-          "rap y palabra/VIDEO-2026-06-02-22-20-40.mp4"
+          "rap y palabra/VIDEO-2026-06-02-18-20-10.mp4"
         ]
       }
     ]
   },
   espana: {
     eyebrow: "Red nacional",
-    title: "Tradiciones en España",
+    title: "Tradiciones de otros territorios de España",
     lead: "Colaboración con el IES Conde Diego Porcelos de Burgos para conectar tradiciones musicales de distintos territorios.",
     intro: [
       "Esta línea de trabajo amplía el proyecto dentro de España y abre un espacio para compartir músicas, canciones, bailes y materiales entre centros."
@@ -248,7 +279,7 @@ const pages = {
       "Viajar no significa solo desplazarse: también significa acoger, escuchar, compartir y crear espacios de encuentro. Las canciones, los bailes y las celebraciones se convierten así en puentes entre culturas.",
       "Eslovenia, Isla Reunión, Tahití y los proyectos compartidos en eTwinning muestran que el patrimonio musical está vivo precisamente porque puede moverse, mezclarse, transformarse y dialogar con otras realidades."
     ],
-    cover: photo("Tahiti/Portada"),
+    cover: photo("Musicas que viajan/portada"),
     subsections: [
       {
         id: "etwinning",
@@ -394,8 +425,7 @@ const pages = {
           "soundlabarroyoharnina/IMG_9483.MOV",
           "soundlabarroyoharnina/IMG_9485.MOV",
           "soundlabarroyoharnina/IMG_9613.MOV",
-          "soundlabarroyoharnina/IMG_9615.MOV",
-          "Semana santa/VIDEO-2026-06-02-20-02-03.mp4"
+          "soundlabarroyoharnina/IMG_9615.MOV"
         ]
       }
     ]
@@ -428,7 +458,7 @@ function renderHome() {
         <div class="metrics" aria-label="Datos clave del proyecto">
           <div class="metric"><strong>10+</strong><span>canciones y repertorios a recopilar</span></div>
           <div class="metric"><strong>5</strong><span>creaciones reinterpretadas como objetivo</span></div>
-          <div class="metric"><strong>80%</strong><span>participación prevista del alumnado</span></div>
+          <div class="metric"><strong>100%</strong><span>participación del alumnado</span></div>
           <div class="metric"><strong>6</strong><span>líneas de actividad documentadas</span></div>
         </div>
       </div>
@@ -437,10 +467,10 @@ function renderHome() {
     <section class="section-body" id="mapa-secciones">
       <div class="cards-grid">
         ${homeCard("tradicion-extremena", "Tradición musical extremeña", "Navidad, Semana Santa, romerías, bailes e instrumentos.", photo("bailes tradicionales/IMG_7055"))}
-        ${homeCard("tradicion-internacional", "Tradición internacional", "Carnaval y Halloween.", photo("Tradicion internacional/portada"))}
+        ${homeCard("tradicion-internacional", "Tradición internacional", "Carnaval y Halloween.", photo("Tradicion internacional/portada-nueva"))}
         ${homeCard("palabra-remix", "Palabra y remix", "Poesía, rap recitado y voz contemporánea.", photo("rap y palabra/PORTADA"))}
-        ${homeCard("espana", "Tradiciones en España", "Burgos e IES Conde Diego Porcelos.", photo("burgos/portada"))}
-        ${homeCard("musicas-viajan", "Músicas que viajan", "Erasmus, eTwinning, acogidas y tradiciones compartidas.", photo("Tahiti/Portada"))}
+        ${homeCard("espana", "Tradiciones de otros territorios de España", "Burgos e IES Conde Diego Porcelos.", photo("burgos/portada"))}
+        ${homeCard("musicas-viajan", "Músicas que viajan", "Erasmus, eTwinning, acogidas y tradiciones compartidas.", photo("Musicas que viajan/portada"))}
         ${homeCard("soundlab", "SoundLab", "Grabación, edición, herramientas digitales y creación sonora.", photo("soundlabarroyoharnina/IMG_9258"))}
       </div>
     </section>
@@ -525,10 +555,22 @@ function renderSubsection(item) {
           </div>
         </div>
       </div>
+      ${renderDetails(item)}
       ${renderLinks(item)}
       ${renderProgram(item)}
+      ${item.evidenceNote ? `<aside class="evidence-note"><strong>Primera evidencia del proceso</strong><p>${item.evidenceNote}</p></aside>` : ""}
       ${renderGallery(item)}
     </article>
+  `;
+}
+
+function renderDetails(item) {
+  if (!item.details?.length) return "";
+  return `
+    <div class="activity-story">
+      ${item.detailsTitle ? `<h3>${item.detailsTitle}</h3>` : ""}
+      ${item.details.map((paragraph) => `<p>${paragraph}</p>`).join("")}
+    </div>
   `;
 }
 
@@ -692,6 +734,8 @@ function updateActiveNav(pageKey) {
 
 function closeMenu() {
   document.querySelector(".main-nav")?.classList.remove("is-open");
+  document.querySelectorAll(".nav-item.is-open").forEach((item) => item.classList.remove("is-open"));
+  document.querySelectorAll(".submenu-toggle").forEach((button) => button.setAttribute("aria-expanded", "false"));
   document.querySelector(".nav-toggle")?.setAttribute("aria-expanded", "false");
 }
 
@@ -699,6 +743,14 @@ document.querySelector(".nav-toggle")?.addEventListener("click", () => {
   const nav = document.querySelector(".main-nav");
   const isOpen = nav.classList.toggle("is-open");
   document.querySelector(".nav-toggle").setAttribute("aria-expanded", String(isOpen));
+});
+
+document.querySelectorAll(".submenu-toggle").forEach((button) => {
+  button.addEventListener("click", () => {
+    const item = button.closest(".nav-item");
+    const isOpen = item.classList.toggle("is-open");
+    button.setAttribute("aria-expanded", String(isOpen));
+  });
 });
 
 document.addEventListener("click", (event) => {
