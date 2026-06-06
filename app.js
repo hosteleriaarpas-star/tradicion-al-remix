@@ -1,6 +1,7 @@
 const photo = (path) => encodeURI(`assets/media/photos/${path}.jpg`);
 const poster = (path) => encodeURI(`assets/media/posters/${path.replace(/\.[^.]+$/, "")}.jpg`);
 const mediaFile = (path) => encodeURI(`assets/media/videos/${path.replace(/\.[^.]+$/, ".mp4")}`);
+const audioFile = (path) => encodeURI(`assets/media/audio/${path}`);
 
 const fixedSteps = [
   ["Presentación", "Qué se hizo y por qué forma parte del proyecto."],
@@ -14,16 +15,20 @@ const pages = {
   "tradicion-extremena": {
     eyebrow: "Patrimonio cercano",
     title: "Tradición musical extremeña",
-    lead: "Recorrido por canciones, fiestas, bailes e instrumentos que conectan el aula con la memoria cultural de Extremadura.",
+    lead: "Canciones, fiestas, bailes e instrumentos que conectan el aula con la memoria cultural de Extremadura.",
+    intro: [
+      "Esta sección recoge el trabajo realizado en torno a la tradición musical extremeña como punto de partida del proyecto. A través de canciones, fiestas, bailes, instrumentos y celebraciones populares, el alumnado se ha acercado a un patrimonio cercano que forma parte de nuestra memoria cultural.",
+      "Desde la Navidad hasta la Semana Santa, las romerías, los bailes tradicionales y la exposición de instrumentos, hemos trabajado la tradición no como algo cerrado o antiguo, sino como una materia viva que puede cantarse, escucharse, bailarse, compartirse y también transformarse desde lenguajes actuales."
+    ],
     cover: photo("bailes tradicionales/IMG_7055"),
     subsections: [
       {
         id: "navidad",
         title: "Navidad y tradición oral",
-        summary: "Recuperación de repertorios navideños y canciones transmitidas por familias, mayores y comunidad.",
-        tradition: "Villancicos, encuentros intergeneracionales y repertorio oral vinculado a la Navidad.",
-        present: "El alumnado documenta, interpreta y graba la tradición para convertirla en memoria audiovisual.",
-        result: "La actividad refuerza el vínculo entre generaciones y convierte la música popular en material vivo de aprendizaje.",
+        summary: "La Navidad nos ha permitido recuperar villancicos y canciones que forman parte de la memoria familiar y colectiva.",
+        tradition: "Villancicos interpretados en el instituto, en residencias de mayores y durante experiencias Erasmus.",
+        present: "La interpretación, la grabación y el intercambio convierten el repertorio tradicional en un puente entre generaciones, culturas y centros.",
+        result: "La tradición navideña sale del aula y se convierte en una experiencia compartida y viva.",
         tags: ["Tradición oral", "Familias", "Vídeo"],
         photos: [
           "Navidad/Residencia de ancianos/IMG_5033",
@@ -47,21 +52,30 @@ const pages = {
       {
         id: "semana-santa",
         title: "Semana Santa",
-        summary: "Espacio reservado para documentar músicas, sonidos procesionales y memoria sonora de la Semana Santa.",
-        tradition: "Marchas, cantos, silencio ritual, percusión y paisaje sonoro de la celebración.",
-        present: "La sección queda preparada para incorporar registros, entrevistas o piezas sonoras cuando se añadan al proyecto.",
-        result: "Pendiente de evidencias en la carpeta correspondiente.",
-        tags: ["Pendiente", "Paisaje sonoro"],
-        photos: [],
-        videos: []
+        summary: "Interpretación de marchas procesionales en conciertos del instituto y ante el alumnado visitante de Isla Reunión.",
+        tradition: "Marchas procesionales y patrimonio musical vinculado a la Semana Santa.",
+        present: "Las grabaciones se trabajan desde el SoundLab mediante remasterización, tratamiento musical y técnicas propias del DJ.",
+        result: "La tradición procesional se comparte y se actualiza mediante interpretación, grabación y producción digital.",
+        tags: ["Semana Santa", "DJ", "SoundLab"],
+        photos: ["Semana santa/portada"],
+        videos: [
+          "Semana santa/IMG_9781.MOV",
+          "Semana santa/IMG_9782.MOV"
+        ],
+        audios: [
+          {
+            path: "Semana santa/MI AMARGURA - AFRO HOUSE.mp3",
+            title: "Mi Amargura · Afro House"
+          }
+        ]
       },
       {
         id: "romerias",
         title: "Romerías y fiestas populares",
-        summary: "Fiestas, encuentros y celebraciones populares como espacio de música compartida y participación comunitaria.",
-        tradition: "Romerías, celebraciones locales, carnaval y otras fiestas donde la música acompaña la vida social.",
-        present: "Las evidencias audiovisuales permiten observar cómo se baila, se canta y se participa hoy en esas celebraciones.",
-        result: "El alumnado identifica la tradición como una práctica viva, no como una pieza aislada del pasado.",
+        summary: "Trabajo en torno a La Gira, una de las canciones más populares y representativas de Almendralejo.",
+        tradition: "La Gira, interpretada con instrumentos de aula y elementos vinculados a la tradición musical extremeña.",
+        present: "Los ensayos, las grabaciones individuales y la producción con Ejel Estudio permiten aprender también de las pruebas y los errores.",
+        result: "El proceso prepara un audio final compartible y acerca al alumnado a una música muy presente en su entorno.",
         tags: ["Fiesta popular", "Comunidad", "Cuerpo"],
         photos: [],
         videos: [
@@ -70,20 +84,16 @@ const pages = {
           "romerias/IMG_6237.MOV",
           "romerias/IMG_6239.MOV",
           "romerias/IMG_6312.MOV",
-          "romerias/IMG_6893.MOV",
-          "carnavales/IMG_5438.MOV",
-          "carnavales/IMG_5439.MOV",
-          "carnavales/IMG_5440.mov",
-          "Halloween/IMG_3037.MOV"
+          "romerias/IMG_6893.MOV"
         ]
       },
       {
         id: "bailes",
-        title: "Bailes tradicionales: Tierra de Barros",
-        summary: "Trabajo corporal y musical sobre bailes tradicionales del entorno, con atención al ritmo, el gesto y la transmisión.",
-        tradition: "Bailes populares vinculados a Tierra de Barros y al patrimonio festivo extremeño.",
-        present: "La danza se registra en vídeo y foto para analizar pasos, roles, energía colectiva y posibilidades de reinterpretación.",
-        result: "El baile se convierte en una forma directa de comprender patrimonio, coordinación y convivencia.",
+        title: "Bailes tradicionales: ACF Tierra de Barros",
+        summary: "La visita de ACF Tierra de Barros acercó al alumnado a una parte muy viva del folclore extremeño.",
+        tradition: "Bailes, músicas e indumentaria tradicional vinculados al patrimonio cultural de Tierra de Barros.",
+        present: "Varios alumnos forman parte de la asociación y asumieron un papel protagonista al compartir su tradición con el alumnado visitante de Isla Reunión.",
+        result: "La actividad integró patrimonio, participación juvenil, acogida y diálogo cultural.",
         tags: ["Danza", "Tierra de Barros", "Identidad"],
         photos: [
           "bailes tradicionales/IMG_7054",
@@ -94,15 +104,21 @@ const pages = {
         videos: [
           "bailes tradicionales/IMG_7053.mov",
           "bailes tradicionales/IMG_7061.MOV"
+        ],
+        links: [
+          {
+            label: "Visitar ACF Tierra de Barros",
+            href: "https://www.facebook.com/acftbalmendralejo/?locale=es_ES"
+          }
         ]
       },
       {
         id: "instrumentos",
         title: "Exposición de instrumentos tradicionales extremeños",
-        summary: "Muestra de instrumentos como objetos culturales, sonoros y educativos.",
-        tradition: "Instrumentos tradicionales, pequeñas percusiones y recursos usados para acompañar canciones y bailes.",
-        present: "La exposición se transforma en archivo visual para comparar timbres tradicionales con producción digital actual.",
-        result: "El alumnado reconoce el instrumento como tecnología cultural: una herramienta para crear, acompañar y transmitir memoria.",
+        summary: "La exposición realizada por Luis Garrido, profesor de Música jubilado y fundador de ACF Tierra de Barros, acercó al alumnado a los sonidos y objetos de nuestra tradición.",
+        tradition: "Instrumentos con cientos de años de historia, transmitidos de generación en generación.",
+        present: "Conocer de dónde vienen nuestros sonidos permite comprenderlos antes de llevarlos a lenguajes actuales, digitales y creativos.",
+        result: "El alumnado reconoce cada instrumento como patrimonio, tecnología cultural y memoria sonora.",
         tags: ["Instrumentos", "Timbre", "Exposición"],
         photos: [
           "Exposicion de instrumentos tradicionales/IMG_7081",
@@ -116,67 +132,130 @@ const pages = {
       }
     ]
   },
+  "tradicion-internacional": {
+    eyebrow: "Celebraciones que cambian",
+    title: "Tradición internacional",
+    lead: "Carnaval y Halloween muestran cómo las tradiciones viajan, cambian y se actualizan al llegar a nuevos contextos.",
+    intro: [
+      "En el proyecto “De la tradición al Remix” también hemos trabajado celebraciones internacionales cercanas al alumnado, como el Carnaval y Halloween.",
+      "A través de la música, el movimiento, el inglés, la percusión, los materiales reciclados y la creación digital, el alumnado ha participado de forma activa en experiencias que unen tradición, creatividad y lenguajes actuales."
+    ],
+    cover: photo("Tradicion internacional/portada"),
+    subsections: [
+      {
+        id: "carnaval",
+        title: "Carnaval: percusión, creatividad y reciclaje",
+        summary: "En Carnaval trabajamos la batucada y la percusión colectiva utilizando instrumentos reciclados creados por el propio alumnado.",
+        tradition: "Carnaval, batucada y percusión compartida como celebración comunitaria.",
+        present: "Cubos, chapas y otros materiales cotidianos se convierten en recursos sonoros para experimentar con el ritmo y la energía del grupo.",
+        result: "La actividad une música, creatividad, sostenibilidad e inclusión, demostrando que cualquier objeto puede convertirse en instrumento.",
+        tags: ["Carnaval", "Percusión", "Reciclaje"],
+        photos: [],
+        videos: [
+          "carnavales/IMG_5438.MOV",
+          "carnavales/IMG_5439.MOV",
+          "carnavales/IMG_5440.mov"
+        ]
+      },
+      {
+        id: "halloween",
+        title: "Halloween: música, inglés, danza y vídeo",
+        summary: "Halloween se trabajó mediante una canción en inglés en colaboración con la sección bilingüe.",
+        tradition: "Celebración internacional abordada desde la música, el movimiento y la lengua inglesa.",
+        present: "La danza y la creación de un vídeo añaden una dimensión digital al proceso y convierten el trabajo del aula en una evidencia audiovisual compartida.",
+        result: "El alumnado mejora pronunciación, expresión corporal, competencia lingüística y participación en grupo.",
+        tags: ["Halloween", "Inglés", "Vídeo"],
+        photos: [],
+        videos: [
+          "Halloween/IMG_3037.MOV",
+          "Halloween/VIDEO-2026-06-02-19-21-41.mp4"
+        ]
+      }
+    ]
+  },
   "palabra-remix": {
     eyebrow: "Lengua, ritmo y voz",
     title: "De la palabra tradicional al remix",
     lead: "La poesía, el recitado y la palabra popular se convierten en materia rítmica para trabajar rap, interpretación y creación sonora.",
+    intro: [
+      "La palabra también forma parte del patrimonio. En esta sección, textos antiguos, poesía y oralidad dialogan con el rap, la creación musical y la voz del alumnado."
+    ],
     cover: photo("rap y palabra/PORTADA"),
     subsections: [
       {
         id: "poesia",
         title: "Poesía antigua llevada a lenguajes actuales",
-        summary: "Trabajo de actualización de textos y formas orales mediante ritmo, voz, base musical y puesta en escena.",
-        tradition: "Textos antiguos, romances, poemas y palabra transmitida desde la cultura oral o literaria.",
-        present: "El alumnado explora cómo cambiar la métrica, la intención y el soporte transforma la recepción del texto.",
-        result: "La tradición verbal se entiende como material creativo que puede dialogar con códigos actuales.",
-        tags: ["Poesía", "Oralidad", "Actualización"],
+        summary: "A partir de “Negra sombra”, poema de Rosalía de Castro, trabajamos la poesía desde un lenguaje más cercano al alumnado actual.",
+        tradition: "Un texto clásico y su capacidad para seguir emocionando y comunicando en otros contextos.",
+        present: "Con la colaboración de la artista La Tachi, el alumnado trabaja la palabra poética desde el rap, el ritmo, la voz y la expresión contemporánea.",
+        result: "La poesía vuelve a cobrar vida en el aula y demuestra que también puede transformarse y formar parte de “De la tradición al Remix”.",
+        tags: ["Negra sombra", "La Tachi", "Rap"],
         photos: [],
-        videos: []
+        videos: [
+          "rap y palabra/VIDEO-2026-06-02-18-20-10.mp4",
+          "rap y palabra/VIDEO-2026-06-02-18-21-05.mp4"
+        ]
       },
       {
         id: "rap",
-        title: "Rap recitado",
-        summary: "Recitado rítmico y rap como puente entre patrimonio verbal y música urbana.",
-        tradition: "Uso expresivo de la voz, la rima y la memoria oral.",
-        present: "El rap permite reescribir, interpretar y grabar textos desde un lenguaje cercano al alumnado.",
-        result: "La actividad favorece competencia lingüística, presencia escénica, creatividad y escucha crítica.",
+        title: "Rap recitado: la voz del alumnado",
+        summary: "El alumnado ha trabajado el rap como forma actual de expresión oral y musical.",
+        tradition: "La oralidad, la voz, la rima y la creación compartida.",
+        present: "A partir de varias propuestas de letras, los alumnos y alumnas crean sus canciones y exploran ritmo, palabra e interpretación.",
+        result: "La actividad da protagonismo a la voz del alumnado y transforma la palabra en una creación musical cercana a su realidad.",
         tags: ["Rap", "Rima", "Grabación"],
         photos: [],
-        videos: ["rap y palabra/b1be4103-325e-48ed-8dab-ed54cb6b302d.MP4"]
+        videos: [
+          "rap y palabra/b1be4103-325e-48ed-8dab-ed54cb6b302d.MP4",
+          "rap y palabra/VIDEO-2026-06-02-22-20-40.mp4"
+        ]
       }
     ]
   },
   espana: {
     eyebrow: "Red nacional",
-    title: "Burgos - Instituto Diego Porcelos",
-    lead: "Colaboración nacional para comparar repertorios, danzas y formas de transmisión musical con el IES Conde Diego Porcelos de Burgos.",
-    cover: photo("burgos/portada"),
+    title: "Tradiciones en España",
+    lead: "Colaboración con el IES Conde Diego Porcelos de Burgos para conectar tradiciones musicales de distintos territorios.",
+    intro: [
+      "Esta línea de trabajo amplía el proyecto dentro de España y abre un espacio para compartir músicas, canciones, bailes y materiales entre centros."
+    ],
+    cover: photo("burgos/PHOTO-2026-06-02-18-32-19"),
     subsections: [
       {
         id: "burgos",
         title: "Burgos: IES Conde Diego Porcelos",
-        summary: "Colaboración nacional para compartir repertorios como la Danza del Escarrete o cantos de vendimia.",
-        tradition: "Patrimonio musical burgalés, danza, repertorio agrícola y memoria local.",
-        present: "El intercambio permite comparar tradiciones y preparar reinterpretaciones desde una lógica colaborativa.",
-        result: "Se refuerza la cooperación intercentros y la comprensión de la diversidad cultural española.",
-        tags: ["Burgos", "Intercentros", "Pendiente"],
-        photos: [],
-        videos: []
+        summary: "Inicio de la colaboración con el IES Conde Diego Porcelos de Burgos y con su profesora María Corbí.",
+        tradition: "Patrimonio musical burgalés y tradición musical extremeña como punto de encuentro entre centros.",
+        present: "La colaboración seguirá desarrollándose el próximo curso mediante músicas, canciones, bailes y materiales compartidos.",
+        result: "Se abre una línea de trabajo sobre tradición, identidad cultural y creación compartida entre centros.",
+        tags: ["Burgos", "Intercentros", "Colaboración"],
+        photos: ["burgos/PHOTO-2026-06-02-18-32-19"],
+        videos: [
+          "burgos/VIDEO-2026-06-02-18-32-19.mp4",
+          "burgos/VIDEO-2026-06-02-18-32-19 2.mp4",
+          "burgos/VIDEO-2026-06-02-18-32-19 3.mp4",
+          "burgos/VIDEO-2026-06-02-18-32-19 4.mp4"
+        ]
       }
     ]
   },
-  erasmus: {
+  "musicas-viajan": {
     eyebrow: "Músicas que viajan",
-    title: "Tradiciones que viajan: Erasmus y eTwinning",
-    lead: "Erasmus y eTwinning abren el proyecto a una lectura internacional de la música, la identidad, el patrimonio compartido y el intercambio cultural.",
+    title: "Músicas que viajan",
+    lead: "Erasmus, eTwinning, acogidas y tradiciones compartidas.",
+    intro: [
+      "Esta sección recoge la dimensión internacional del proyecto. A través de Erasmus, eTwinning, movilidades y acogidas, nuestras músicas y tradiciones han salido del aula, pero también han llegado hasta nuestro centro gracias a la colaboración con alumnado y profesorado de otros países.",
+      "Viajar no significa solo desplazarse: también significa acoger, escuchar, compartir y crear espacios de encuentro. Las canciones, los bailes y las celebraciones se convierten así en puentes entre culturas.",
+      "Eslovenia, Isla Reunión, Tahití y los proyectos compartidos en eTwinning muestran que el patrimonio musical está vivo precisamente porque puede moverse, mezclarse, transformarse y dialogar con otras realidades."
+    ],
     cover: photo("Tahiti/Portada"),
     subsections: [
       {
         id: "etwinning",
-        title: "eTwinning: Cultural Echoes 2026",
+        title: "eTwinning: tradiciones que se comparten",
         summary: "Proyecto eTwinning 2025-26 Cultural Echoes: Unseen Threads, Shared Heritage, centrado en descubrir vínculos culturales y patrimonio compartido.",
         tradition: "Patrimonio cultural, memoria, tradiciones locales y ecos comunes entre comunidades educativas internacionales.",
-        present: "La colaboración digital permite compartir presentaciones, evidencias, certificados y materiales creados por el alumnado con una red de países: España, Italia, Grecia, Francia, Turquía y Jordania, con siete participaciones internacionales.",
+        present: "La colaboración en red permite compartir músicas, vídeos, celebraciones, materiales y experiencias con otros centros, creando un espacio común donde las tradiciones dialogan y se transforman.",
         result: "El alumnado sitúa su tradición en diálogo con otras culturas y comprende que el patrimonio también se construye desde la colaboración online.",
         tags: ["eTwinning", "Cultural Echoes", "7 países"],
         photos: [
@@ -188,16 +267,20 @@ const pages = {
           {
             label: "Abrir Cultural Echoes 2026",
             href: "https://www.emaze.com/@ALFTTLQTR/cultural-echoes-2026"
+          },
+          {
+            label: "Ver Cultural Echoes en Instagram",
+            href: "https://www.instagram.com/cultural.echoes1?utm_source=ig_web_button_share_sheet&igsh=ODdmZWVhMTFiMw=="
           }
         ]
       },
       {
         id: "eslovenia",
-        title: "Eslovenia: OŠ Ivana Cankarja Ljutomer",
-        summary: "Registro de experiencias, repertorios y encuentros vinculados al intercambio Erasmus.",
-        tradition: "Música, danza y cultura escolar compartida en el contexto esloveno.",
-        present: "Las evidencias audiovisuales permiten trabajar comparación cultural, escucha y memoria del viaje.",
-        result: "El alumnado entiende la tradición como algo situado, pero también transferible y compartible.",
+        title: "Eslovenia: tradición navideña y modernidad",
+        summary: "En la movilidad Erasmus a Eslovenia, 25 alumnos y los profesores Baltasar Arias y Clara Pascual compartieron parte de nuestra tradición navideña.",
+        tradition: "Tradición navideña extremeña y músicas y celebraciones del centro OŠ Ivana Cankarja Ljutomer.",
+        present: "La puesta en escena, las luces, los micrófonos y los recursos técnicos ayudan a presentar la tradición desde una mirada actual.",
+        result: "Una tradición cercana viaja a otro contexto europeo y dialoga con otras formas de celebrar y entender la música.",
         tags: ["Erasmus", "Eslovenia", "Interculturalidad"],
         photos: [
           "eslovenia/IMG_4494",
@@ -226,15 +309,25 @@ const pages = {
           "eslovenia/IMG_4109.MOV",
           "eslovenia/IMG_4110.MOV",
           "eslovenia/IMG_4793.MOV"
+        ],
+        links: [
+          {
+            label: "Ver movilidad a Eslovenia",
+            href: "https://sites.google.com/iesarroyoharnina.es/villaharnilejoporeuropa/movilidades-25-26/eslovenia?authuser=0"
+          },
+          {
+            label: "Abrir álbum de fotos",
+            href: "https://photos.google.com/share/AF1QipMjQ845r-fr9jLNY21SRdGvHvEslVukcKuZE2cB-RSdD2d403bnx08rB1prLKGVIA?key=ZzhMN2hSRjk0OVZkR2pWRVJWUGZvclRtV0thT0N3"
+          }
         ]
       },
       {
         id: "reunion",
-        title: "Isla Reunión: Lycée Jean Joly",
-        summary: "Material audiovisual de intercambio con el Lycée Jean Joly, dentro de la dimensión internacional del proyecto.",
-        tradition: "Tradiciones musicales y culturales de un territorio marcado por la mezcla y la diversidad.",
-        present: "El viaje se documenta para relacionar patrimonio, identidad y transformación cultural.",
-        result: "La sección aporta una lectura global del proyecto: las músicas viajan, cambian y generan vínculos.",
+        title: "Isla Reunión: músicas que llegan al Arroyo Harnina",
+        summary: "La acogida del alumnado y profesorado del Lycée Jean Joly convirtió nuestro centro en un espacio de encuentro cultural.",
+        tradition: "Músicas, bailes y tradiciones de Extremadura e Isla Reunión.",
+        present: "La visita continuó una relación iniciada dos años antes y permitió recibir, escuchar y hacer sitio a otras culturas dentro del centro.",
+        result: "La internacionalización se entiende también como acogida, convivencia y aprendizaje compartido.",
         tags: ["Erasmus", "Isla Reunión", "Diversidad"],
         photos: [],
         videos: [
@@ -242,15 +335,21 @@ const pages = {
           "isla reunion/IMG_7181.MOV",
           "isla reunion/IMG_7182.MOV",
           "isla reunion/IMG_7187.MOV"
+        ],
+        program: [
+          ["Lunes 23 de marzo", "11:30 acogida y desayuno; 12:20 actividades físicas; 13:10 linograbado; comida en La Silera y visita guiada de Almendralejo a las 17:00."],
+          ["Martes 24 de marzo", "Artes escénicas, actividades físicas, modelado en arcilla e instrumentos y danza regional con ACF Tierra de Barros. Por la tarde, Museo del Vino y visita a un convento."],
+          ["Miércoles 25 de marzo", "Excursión cultural a Mérida, Elvas y Badajoz."],
+          ["Jueves 26 de marzo", "9:00 ensayo; 10:00 concierto; 12:00 carrera solidaria. Por la tarde, Vinac y proyección de cine francés en el Teatro Carolina Coronado."]
         ]
       },
       {
         id: "tahiti",
-        title: "Tahití: Lycée Paul Gauguin",
-        summary: "Archivo visual y audiovisual de la experiencia cultural vinculada al Lycée Paul Gauguin.",
-        tradition: "Música, danza, identidad insular y patrimonio compartido en contexto educativo.",
-        present: "Las imágenes y vídeos ayudan a comparar lenguajes tradicionales con formas contemporáneas de documentación.",
-        result: "Tahití amplía la web como memoria visual de músicas y culturas en movimiento.",
+        title: "Tahití: música, danza e identidad cultural",
+        summary: "La movilidad docente de Clara Pascual al Lycée Paul Gauguin de Tahití amplió la mirada del proyecto hacia las músicas y tradiciones del Pacífico.",
+        tradition: "Música, danza e identidad cultural polinesia.",
+        present: "El contacto con otras comunidades muestra cómo mantienen vivo su patrimonio mediante transmisión, interpretación y actualización.",
+        result: "La experiencia aporta nuevas ideas y lenguajes artísticos a “De la tradición al Remix”.",
         tags: ["Erasmus", "Tahití", "Viaje"],
         photos: [],
         videos: [
@@ -270,6 +369,10 @@ const pages = {
     eyebrow: "Creación digital",
     title: "SoundLab",
     lead: "Laboratorio de sonido, grabación, edición, herramientas digitales, micrófonos, luces, bases musicales y modernización de la tradición.",
+    intro: [
+      "El SoundLab nace como un grupo de trabajo impulsado desde el Departamento de Música para acompañar el desarrollo del proyecto “De la tradición al Remix”. Su objetivo ha sido ayudarnos a aprender a grabar, editar, utilizar herramientas digitales, trabajar con micrófonos, luces y recursos técnicos, y explorar nuevas formas de llevar la música tradicional a lenguajes actuales.",
+      "Durante este curso hemos iniciado un camino de aprendizaje que todavía tiene mucho recorrido. El SoundLab ha abierto una línea de trabajo muy valiosa para el centro: convertir el aula de música en un espacio de experimentación, grabación, creatividad y futuro."
+    ],
     cover: photo("soundlabarroyoharnina/IMG_9258"),
     subsections: [
       {
@@ -291,7 +394,8 @@ const pages = {
           "soundlabarroyoharnina/IMG_9483.MOV",
           "soundlabarroyoharnina/IMG_9485.MOV",
           "soundlabarroyoharnina/IMG_9613.MOV",
-          "soundlabarroyoharnina/IMG_9615.MOV"
+          "soundlabarroyoharnina/IMG_9615.MOV",
+          "Semana santa/VIDEO-2026-06-02-20-02-03.mp4"
         ]
       }
     ]
@@ -306,7 +410,8 @@ function renderHome() {
         <h1>De la tradición al Remix</h1>
         <p class="hero__lead">Músicas que viajan y se transforman: una memoria visual y pedagógica para rescatar canciones, bailes y repertorios tradicionales y reinterpretarlos con lenguajes actuales.</p>
         <div class="hero__actions">
-          <a class="button" href="#tradicion-extremena">Ver actividades</a>
+          <a class="button" href="#inicio/mapa-secciones">Explorar tradiciones</a>
+          <a class="button button--light" href="#musicas-viajan">Ver músicas que viajan</a>
           <a class="button button--ghost" href="#soundlab">Entrar al SoundLab</a>
         </div>
       </div>
@@ -319,10 +424,6 @@ function renderHome() {
           <h2 id="proyecto-title">Un puente entre memoria cultural y creatividad juvenil</h2>
           <p>El IES Arroyo Harnina propone acercar el patrimonio musical a las nuevas generaciones conectando tradición oral, folclore, danza y repertorios locales con rap, beatbox, electrónica, grabación y edición audiovisual.</p>
           <p>La web organiza cada actividad con su contexto, la tradición trabajada, su actualización, las evidencias y el aprendizaje final. Así, cada sección funciona como una memoria completa del proceso.</p>
-          <div class="button-row">
-            <a class="button" href="#erasmus">Ver Erasmus</a>
-            <a class="button button--light" href="#palabra-remix">Palabra y rap</a>
-          </div>
         </div>
         <div class="metrics" aria-label="Datos clave del proyecto">
           <div class="metric"><strong>10+</strong><span>canciones y repertorios a recopilar</span></div>
@@ -333,12 +434,14 @@ function renderHome() {
       </div>
     </section>
 
-    <section class="section-body">
+    <section class="section-body" id="mapa-secciones">
       <div class="cards-grid">
-        ${homeCard("tradicion-extremena", "Tradición musical extremeña", "Navidad, romerías, bailes e instrumentos.", photo("bailes tradicionales/IMG_7055"))}
+        ${homeCard("tradicion-extremena", "Tradición musical extremeña", "Navidad, Semana Santa, romerías, bailes e instrumentos.", photo("bailes tradicionales/IMG_7055"))}
+        ${homeCard("tradicion-internacional", "Tradición internacional", "Carnaval y Halloween.", photo("Tradicion internacional/portada"))}
         ${homeCard("palabra-remix", "Palabra y remix", "Poesía, rap recitado y voz contemporánea.", photo("rap y palabra/PORTADA"))}
-        ${homeCard("erasmus", "Tradiciones que viajan", "Eslovenia, Isla Reunión y Tahití.", photo("Tahiti/Portada"))}
-        ${homeCard("erasmus/etwinning", "eTwinning Cultural Echoes", "Patrimonio compartido y red internacional.", photo("etwinning cultural echoes/PHOTO-2026-05-25-17-08-54"))}
+        ${homeCard("espana", "Tradiciones en España", "Burgos e IES Conde Diego Porcelos.", photo("burgos/portada"))}
+        ${homeCard("musicas-viajan", "Músicas que viajan", "Erasmus, eTwinning, acogidas y tradiciones compartidas.", photo("Tahiti/Portada"))}
+        ${homeCard("soundlab", "SoundLab", "Grabación, edición, herramientas digitales y creación sonora.", photo("soundlabarroyoharnina/IMG_9258"))}
       </div>
     </section>
 
@@ -364,6 +467,7 @@ function homeCard(hash, title, text, image) {
 function renderPage(key) {
   const page = pages[key] || pages["tradicion-extremena"];
   const cover = page.cover || photo("Portada");
+  const subsections = orderedSubsections(key, page.subsections);
   return `
     <section class="section-hero" style="--section-hero-image: url('${cover}')">
       <div class="section-hero__inner">
@@ -372,17 +476,37 @@ function renderPage(key) {
         <p>${page.lead}</p>
       </div>
     </section>
+    ${renderPageIntro(page)}
     <section class="section-body section-body--wide">
-      <nav class="section-nav" aria-label="Apartados de ${page.title}">
-        ${page.subsections.map((item) => `<a href="#${key}/${item.id}">${item.title}</a>`).join("")}
+      <nav class="section-nav ${key === "musicas-viajan" ? "section-nav--featured" : ""}" aria-label="Apartados de ${page.title}">
+        ${subsections.map((item) => `<a href="#${key}/${item.id}">${item.title}</a>`).join("")}
       </nav>
-      ${page.subsections.map((item) => renderSubsection(item)).join("")}
+      ${subsections.map((item) => renderSubsection(item)).join("")}
+    </section>
+  `;
+}
+
+function orderedSubsections(key, subsections) {
+  if (key !== "musicas-viajan") return subsections;
+  const order = ["eslovenia", "reunion", "tahiti", "etwinning"];
+  return [...subsections].sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
+}
+
+function renderPageIntro(page) {
+  if (!page.intro?.length) return "";
+  return `
+    <section class="page-intro">
+      <div class="content-block">
+        <p class="eyebrow">Sentido educativo</p>
+        <h2>${page.title}</h2>
+        ${page.intro.map((paragraph) => `<p>${paragraph}</p>`).join("")}
+      </div>
     </section>
   `;
 }
 
 function renderSubsection(item) {
-  const total = item.photos.length + item.videos.length;
+  const total = item.photos.length + item.videos.length + (item.audios?.length || 0);
   return `
     <article class="subsection" id="${item.id}">
       <div class="subsection__header">
@@ -402,6 +526,7 @@ function renderSubsection(item) {
         </div>
       </div>
       ${renderLinks(item)}
+      ${renderProgram(item)}
       ${renderGallery(item)}
     </article>
   `;
@@ -416,6 +541,21 @@ function renderLinks(item) {
   `;
 }
 
+function renderProgram(item) {
+  if (!item.program?.length) return "";
+  return `
+    <section class="program" aria-label="Programa de acogida de Isla Reunión">
+      <div class="program__heading">
+        <p class="eyebrow">Programa de acogida</p>
+        <h3>Music and Wellbeing · marzo de 2026</h3>
+      </div>
+      <div class="program__grid">
+        ${item.program.map(([day, details]) => `<div class="program__item"><strong>${day}</strong><span>${details}</span></div>`).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function stepText(name, item, fallback) {
   if (name === "Presentación") return item.summary;
   if (name === "Tradición trabajada") return item.tradition;
@@ -425,7 +565,7 @@ function stepText(name, item, fallback) {
 }
 
 function renderGallery(item) {
-  if (!item.photos.length && !item.videos.length) {
+  if (!item.photos.length && !item.videos.length && !item.audios?.length) {
     return `<div class="empty-state">Sección preparada para incorporar fotos, vídeos, audios o materiales del alumnado cuando estén disponibles.</div>`;
   }
 
@@ -433,6 +573,7 @@ function renderGallery(item) {
     <div class="media-grid" aria-label="Evidencias de ${item.title}">
       ${item.photos.map((path, index) => photoCard(path, `${item.title} · foto ${index + 1}`)).join("")}
       ${item.videos.map((path, index) => videoCard(path, `${item.title} · vídeo ${index + 1}`)).join("")}
+      ${(item.audios || []).map((audio, index) => audioCard(audio, `${item.title} · audio ${index + 1}`)).join("")}
     </div>
   `;
 }
@@ -460,6 +601,20 @@ function videoCard(path, label) {
           <source src="${mediaFile(path)}">
         </video>
       </div>
+    </figure>
+  `;
+}
+
+function audioCard(audio, label) {
+  return `
+    <figure class="media-card media-card--audio">
+      <div class="audio-card__visual">
+        <span>Audio</span>
+        <strong>${audio.title}</strong>
+      </div>
+      <audio controls preload="none" aria-label="${label}">
+        <source src="${audioFile(audio.path)}" type="audio/mpeg">
+      </audio>
     </figure>
   `;
 }
@@ -507,7 +662,8 @@ function enterVideoFullscreen(video) {
 
 function currentRoute() {
   const raw = decodeURIComponent(location.hash.replace(/^#/, "")) || "inicio";
-  const [pageKey, anchor] = raw.split("/");
+  let [pageKey, anchor] = raw.split("/");
+  if (pageKey === "erasmus") pageKey = "musicas-viajan";
   return { pageKey, anchor };
 }
 
@@ -565,9 +721,9 @@ document.addEventListener("keydown", (event) => {
 });
 
 document.addEventListener("play", (event) => {
-  if (event.target.tagName !== "VIDEO") return;
-  document.querySelectorAll("video").forEach((video) => {
-    if (video !== event.target) video.pause();
+  if (!["VIDEO", "AUDIO"].includes(event.target.tagName)) return;
+  document.querySelectorAll("video, audio").forEach((media) => {
+    if (media !== event.target) media.pause();
   });
 }, true);
 
