@@ -3,6 +3,8 @@ const poster = (path) => encodeURI(`assets/media/posters/${path.replace(/\.[^.]+
 const mediaFile = (path) => encodeURI(`assets/media/videos/${path.replace(/\.[^.]+$/, ".mp4")}`);
 const audioFile = (path) => encodeURI(`assets/media/audio/${path}`);
 let revealObserver;
+let lightboxItems = [];
+let lightboxIndex = 0;
 
 const fixedSteps = [
   ["Presentación", "Qué se hizo y por qué forma parte del proyecto."],
@@ -647,16 +649,10 @@ function renderGallery(item) {
   }
 
   return `
-    <div class="media-carousel" aria-label="Galería de ${item.title}">
-      <div class="media-carousel__controls">
-        <button class="media-carousel__button" type="button" data-carousel-direction="-1" aria-label="Ver multimedia anterior de ${item.title}" title="Anterior">←</button>
-        <button class="media-carousel__button" type="button" data-carousel-direction="1" aria-label="Ver multimedia siguiente de ${item.title}" title="Siguiente">→</button>
-      </div>
-      <div class="media-grid" tabindex="0">
-        ${item.photos.map((path, index) => photoCard(path, `${item.title} · foto ${index + 1}`)).join("")}
-        ${item.videos.map((path, index) => videoCard(path, `${item.title} · vídeo ${index + 1}`)).join("")}
-        ${(item.audios || []).map((audio, index) => audioCard(audio, `${item.title} · audio ${index + 1}`)).join("")}
-      </div>
+    <div class="media-grid" aria-label="Galería de ${item.title}">
+      ${item.photos.map((path, index) => photoCard(path, `${item.title} · foto ${index + 1}`)).join("")}
+      ${item.videos.map((path, index) => videoCard(path, `${item.title} · vídeo ${index + 1}`)).join("")}
+      ${(item.audios || []).map((audio, index) => audioCard(audio, `${item.title} · audio ${index + 1}`)).join("")}
     </div>
   `;
 }
@@ -665,7 +661,7 @@ function photoCard(path, label) {
   const src = photo(path);
   return `
     <figure class="media-card media-card--photo">
-      <a class="media-card__frame" href="${src}" data-lightbox-src="${src}" data-lightbox-label="${label}">
+      <a class="media-card__frame" href="${src}" data-viewer-src="${src}" data-viewer-type="image" data-viewer-label="${label}">
         <img src="${src}" alt="${label}" loading="lazy">
       </a>
     </figure>
@@ -673,11 +669,13 @@ function photoCard(path, label) {
 }
 
 function videoCard(path, label) {
+  const src = mediaFile(path);
   return `
     <figure class="media-card media-card--video">
       <div class="media-card__frame">
+        <button class="media-card__expand" type="button" data-viewer-src="${src}" data-viewer-type="video" data-viewer-label="${label}" aria-label="Abrir ${label} en grande" title="Abrir en grande">⛶</button>
         <video controls preload="none" poster="${poster(path)}" aria-label="${label}">
-          <source src="${mediaFile(path)}">
+          <source src="${src}">
         </video>
       </div>
     </figure>
@@ -703,29 +701,73 @@ function ensureLightbox() {
   if (lightbox) return lightbox;
 
   document.body.insertAdjacentHTML("beforeend", `
-    <div class="lightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada" hidden>
-      <button class="lightbox__close" type="button" aria-label="Cerrar imagen ampliada">Cerrar</button>
+    <div class="lightbox" role="dialog" aria-modal="true" aria-label="Multimedia ampliada" hidden>
+      <button class="lightbox__close" type="button" aria-label="Cerrar multimedia ampliada">Cerrar</button>
+      <button class="lightbox__nav lightbox__nav--previous" type="button" aria-label="Ver multimedia anterior">←</button>
       <img class="lightbox__image" alt="">
+      <video class="lightbox__video" controls preload="none" hidden></video>
+      <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Ver multimedia siguiente">→</button>
     </div>
   `);
   return document.querySelector(".lightbox");
 }
 
-function openLightbox(src, label) {
+function showLightboxItem() {
   const lightbox = ensureLightbox();
+  const item = lightboxItems[lightboxIndex];
   const image = lightbox.querySelector(".lightbox__image");
-  image.src = src;
-  image.alt = label || "Imagen ampliada";
+  const video = lightbox.querySelector(".lightbox__video");
+  video.pause();
+  video.removeAttribute("src");
+
+  if (item.type === "video") {
+    image.hidden = true;
+    image.removeAttribute("src");
+    video.hidden = false;
+    video.src = item.src;
+    video.setAttribute("aria-label", item.label);
+  } else {
+    video.hidden = true;
+    image.hidden = false;
+    image.src = item.src;
+    image.alt = item.label || "Imagen ampliada";
+  }
+
+  lightbox.querySelector(".lightbox__nav--previous").disabled = lightboxIndex === 0;
+  lightbox.querySelector(".lightbox__nav--next").disabled = lightboxIndex === lightboxItems.length - 1;
+}
+
+function openLightbox(trigger) {
+  const gallery = trigger.closest(".media-grid");
+  lightboxItems = [...gallery.querySelectorAll("[data-viewer-src]")].map((item) => ({
+    src: item.dataset.viewerSrc,
+    type: item.dataset.viewerType,
+    label: item.dataset.viewerLabel
+  }));
+  lightboxIndex = [...gallery.querySelectorAll("[data-viewer-src]")].indexOf(trigger);
+  const lightbox = ensureLightbox();
+  showLightboxItem();
   lightbox.hidden = false;
   document.body.classList.add("is-lightbox-open");
   lightbox.querySelector(".lightbox__close").focus();
 }
 
+function moveLightbox(direction) {
+  const nextIndex = lightboxIndex + direction;
+  if (nextIndex < 0 || nextIndex >= lightboxItems.length) return;
+  lightboxIndex = nextIndex;
+  showLightboxItem();
+}
+
 function closeLightbox() {
   const lightbox = document.querySelector(".lightbox");
   if (!lightbox || lightbox.hidden) return;
+  const video = lightbox.querySelector(".lightbox__video");
+  video.pause();
+  video.removeAttribute("src");
   lightbox.hidden = true;
   lightbox.querySelector(".lightbox__image").removeAttribute("src");
+  lightboxItems = [];
   document.body.classList.remove("is-lightbox-open");
 }
 
@@ -753,7 +795,6 @@ function render() {
   updateActiveNav(pageKey);
   closeMenu();
   initializeReveals();
-  initializeCarousels();
 
   if (anchor) {
     requestAnimationFrame(() => {
@@ -806,34 +847,6 @@ function initializeReveals() {
   targets.forEach((target) => revealObserver.observe(target));
 }
 
-function initializeCarousels() {
-  document.querySelectorAll(".media-carousel").forEach((carousel) => {
-    const track = carousel.querySelector(".media-grid");
-    const buttons = carousel.querySelectorAll(".media-carousel__button");
-
-    const updateButtons = () => {
-      const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
-      carousel.classList.toggle("is-static", maxScroll <= 2);
-      buttons.forEach((button) => {
-        const direction = Number(button.dataset.carouselDirection);
-        button.disabled = direction < 0 ? track.scrollLeft <= 2 : track.scrollLeft >= maxScroll - 2;
-      });
-    };
-
-    buttons.forEach((button) => {
-      button.addEventListener("click", () => {
-        track.scrollBy({
-          left: Number(button.dataset.carouselDirection) * track.clientWidth * 0.88,
-          behavior: "smooth"
-        });
-      });
-    });
-
-    track.addEventListener("scroll", updateButtons, { passive: true });
-    requestAnimationFrame(updateButtons);
-  });
-}
-
 function updateActiveNav(pageKey) {
   document.querySelectorAll(".main-nav a").forEach((link) => {
     const isActive = link.getAttribute("href") === `#${pageKey}`;
@@ -863,10 +876,20 @@ document.querySelectorAll(".submenu-toggle").forEach((button) => {
 });
 
 document.addEventListener("click", (event) => {
-  const lightboxLink = event.target.closest("[data-lightbox-src]");
-  if (lightboxLink) {
+  const viewerTrigger = event.target.closest("[data-viewer-src]");
+  if (viewerTrigger) {
     event.preventDefault();
-    openLightbox(lightboxLink.dataset.lightboxSrc, lightboxLink.dataset.lightboxLabel);
+    openLightbox(viewerTrigger);
+    return;
+  }
+
+  if (event.target.closest(".lightbox__nav--previous")) {
+    moveLightbox(-1);
+    return;
+  }
+
+  if (event.target.closest(".lightbox__nav--next")) {
+    moveLightbox(1);
     return;
   }
 
@@ -879,6 +902,8 @@ document.addEventListener("click", (event) => {
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") closeLightbox();
+  if (event.key === "ArrowLeft") moveLightbox(-1);
+  if (event.key === "ArrowRight") moveLightbox(1);
 });
 
 document.addEventListener("play", (event) => {
