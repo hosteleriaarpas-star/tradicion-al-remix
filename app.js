@@ -881,6 +881,15 @@ document.querySelectorAll(".submenu-toggle").forEach((button) => {
   });
 });
 
+document.querySelectorAll(".nav-item").forEach((item) => {
+  item.addEventListener("mouseleave", () => {
+    if (window.matchMedia("(max-width: 1250px)").matches) return;
+    item.classList.remove("is-open");
+    item.querySelector(".submenu-toggle")?.setAttribute("aria-expanded", "false");
+    if (item.contains(document.activeElement)) document.activeElement.blur();
+  });
+});
+
 document.addEventListener("click", (event) => {
   const viewerTrigger = event.target.closest("[data-viewer-src]");
   if (viewerTrigger) {
