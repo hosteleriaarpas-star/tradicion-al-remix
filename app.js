@@ -647,10 +647,16 @@ function renderGallery(item) {
   }
 
   return `
-    <div class="media-grid" aria-label="Galería de ${item.title}">
-      ${item.photos.map((path, index) => photoCard(path, `${item.title} · foto ${index + 1}`)).join("")}
-      ${item.videos.map((path, index) => videoCard(path, `${item.title} · vídeo ${index + 1}`)).join("")}
-      ${(item.audios || []).map((audio, index) => audioCard(audio, `${item.title} · audio ${index + 1}`)).join("")}
+    <div class="media-carousel" aria-label="Galería de ${item.title}">
+      <div class="media-carousel__controls">
+        <button class="media-carousel__button" type="button" data-carousel-direction="-1" aria-label="Ver multimedia anterior de ${item.title}" title="Anterior">←</button>
+        <button class="media-carousel__button" type="button" data-carousel-direction="1" aria-label="Ver multimedia siguiente de ${item.title}" title="Siguiente">→</button>
+      </div>
+      <div class="media-grid" tabindex="0">
+        ${item.photos.map((path, index) => photoCard(path, `${item.title} · foto ${index + 1}`)).join("")}
+        ${item.videos.map((path, index) => videoCard(path, `${item.title} · vídeo ${index + 1}`)).join("")}
+        ${(item.audios || []).map((audio, index) => audioCard(audio, `${item.title} · audio ${index + 1}`)).join("")}
+      </div>
     </div>
   `;
 }
@@ -662,10 +668,6 @@ function photoCard(path, label) {
       <a class="media-card__frame" href="${src}" data-lightbox-src="${src}" data-lightbox-label="${label}">
         <img src="${src}" alt="${label}" loading="lazy">
       </a>
-      <figcaption class="media-card__body">
-        <strong>Foto</strong>
-        <a href="${src}" data-lightbox-src="${src}" data-lightbox-label="${label}">Ver grande</a>
-      </figcaption>
     </figure>
   `;
 }
@@ -751,6 +753,7 @@ function render() {
   updateActiveNav(pageKey);
   closeMenu();
   initializeReveals();
+  initializeCarousels();
 
   if (anchor) {
     requestAnimationFrame(() => {
@@ -801,6 +804,34 @@ function initializeReveals() {
   }, { threshold: 0.12, rootMargin: "0px 0px -5% 0px" });
 
   targets.forEach((target) => revealObserver.observe(target));
+}
+
+function initializeCarousels() {
+  document.querySelectorAll(".media-carousel").forEach((carousel) => {
+    const track = carousel.querySelector(".media-grid");
+    const buttons = carousel.querySelectorAll(".media-carousel__button");
+
+    const updateButtons = () => {
+      const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+      carousel.classList.toggle("is-static", maxScroll <= 2);
+      buttons.forEach((button) => {
+        const direction = Number(button.dataset.carouselDirection);
+        button.disabled = direction < 0 ? track.scrollLeft <= 2 : track.scrollLeft >= maxScroll - 2;
+      });
+    };
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        track.scrollBy({
+          left: Number(button.dataset.carouselDirection) * track.clientWidth * 0.88,
+          behavior: "smooth"
+        });
+      });
+    });
+
+    track.addEventListener("scroll", updateButtons, { passive: true });
+    requestAnimationFrame(updateButtons);
+  });
 }
 
 function updateActiveNav(pageKey) {
