@@ -7,7 +7,6 @@ const fixedSteps = [
   ["Presentación", "Qué se hizo y por qué forma parte del proyecto."],
   ["Tradición trabajada", "Patrimonio, repertorio, texto, baile o costumbre abordada."],
   ["Del pasado al presente", "Remix, rap, grabación, vídeo o interpretación actual."],
-  ["Evidencias", "Fotos, vídeos, carteles, audios o materiales del alumnado."],
   ["Resultado", "Aprendizaje y valor cultural de la actividad."]
 ];
 
@@ -63,7 +62,7 @@ const pages = {
           "Además, contamos con la colaboración de un antiguo alumno, Manu, cuyo nombre artístico es DJ UNNAM. Durante su visita, mostró el funcionamiento de una mesa de mezclas, realizó una demostración práctica y permitió que el alumnado experimentara directamente con los controles. A partir de este trabajo preparó un remix de la marcha, uno de los resultados más esperados del curso.",
           "Esta actividad resume muy bien la idea de “De la tradición al Remix”: partir de una música tradicional, interpretarla, grabarla, analizarla y abrirla a nuevas posibilidades mediante herramientas digitales y técnicas actuales de producción sonora."
         ],
-        evidenceNote: "Este vídeo recoge una de las primeras evidencias del trabajo realizado con “Mi amargura”, interpretada en concierto antes de iniciar el proceso más técnico de grabación y mezcla en el SoundLab. Sirve como punto de partida para observar la evolución posterior del proyecto: de la interpretación en directo a la grabación por pistas, el montaje digital y el remix.",
+        processNote: "Este vídeo recoge una de las primeras grabaciones del trabajo realizado con “Mi amargura”, interpretada en concierto antes de iniciar el proceso más técnico de grabación y mezcla en el SoundLab. Sirve como punto de partida para observar la evolución posterior del proyecto: de la interpretación en directo a la grabación por pistas, el montaje digital y el remix.",
         tags: ["Mi amargura", "DJ UNNAM", "SoundLab"],
         photos: ["Semana santa/portada"],
         videos: [
@@ -182,7 +181,7 @@ const pages = {
         title: "Halloween: música, inglés, danza y vídeo",
         summary: "Halloween se trabajó mediante una canción en inglés en colaboración con la sección bilingüe.",
         tradition: "Celebración internacional abordada desde la música, el movimiento y la lengua inglesa.",
-        present: "La danza y la creación de un vídeo añaden una dimensión digital al proceso y convierten el trabajo del aula en una evidencia audiovisual compartida.",
+        present: "La danza y la creación de un vídeo añaden una dimensión digital al proceso y convierten el trabajo del aula en un registro audiovisual compartido.",
         result: "El alumnado mejora pronunciación, expresión corporal, competencia lingüística y participación en grupo.",
         tags: ["Halloween", "Inglés", "Vídeo"],
         photos: [],
@@ -205,14 +204,25 @@ const pages = {
       {
         id: "poesia",
         title: "Poesía antigua llevada a lenguajes actuales",
-        summary: "A partir de “Negra sombra”, poema de Rosalía de Castro, trabajamos la poesía desde un lenguaje más cercano al alumnado actual.",
+        summary: "La sección reúne dos propuestas diferenciadas que conectan la poesía clásica con lenguajes musicales actuales.",
         tradition: "“Negra sombra”, de Rosalía de Castro, y varias rimas de Gustavo Adolfo Bécquer.",
-        present: "La colaboración con La Tachi y la creación propia de Hugo y Javier acercan la poesía clásica a la voz, el rap, la grabación y la producción digital.",
+        present: "La colaboración con La Tachi en “Negra sombra” y la creación propia de Hugo y Javier a partir de Bécquer acercan la poesía clásica a la voz, la grabación y la producción digital.",
         result: "La poesía clásica encuentra nuevas formas de expresión conectadas con la sensibilidad contemporánea.",
-        detailsTitle: "Bécquer llevado a lenguajes actuales",
-        details: [
-          "Además del trabajo realizado con “Negra sombra”, esta sección incorpora una creación musical basada en varias rimas de Gustavo Adolfo Bécquer. La canción ha sido realizada por dos alumnos del instituto, Hugo y Javier, con producción y grabación propia.",
-          "Esta propuesta muestra cómo la poesía clásica puede encontrar una nueva forma de expresión cuando se acerca a los lenguajes musicales actuales. A través de la voz, la grabación y la producción digital, el alumnado transforma textos literarios en una creación propia, conectando la tradición poética con la sensibilidad contemporánea."
+        stories: [
+          {
+            title: "Rosalía de Castro: “Negra sombra”",
+            paragraphs: [
+              "En esta propuesta partimos de “Negra sombra”, poema de Rosalía de Castro, para acercarlo a lenguajes musicales actuales. Con la colaboración de La Tachi, el alumnado trabajó la palabra poética desde el ritmo, la voz y la expresión contemporánea.",
+              "El objetivo fue demostrar que un texto clásico puede volver a cobrar vida cuando se interpreta desde códigos cercanos al alumnado, conectando poesía, oralidad, música urbana y creatividad."
+            ]
+          },
+          {
+            title: "Gustavo Adolfo Bécquer: poesía y creación propia",
+            paragraphs: [
+              "Además del trabajo con Rosalía de Castro, esta sección recoge una canción creada por dos alumnos del instituto, Hugo y Javier, a partir de varias rimas de Gustavo Adolfo Bécquer.",
+              "La producción y la grabación han sido realizadas por ellos mismos, convirtiendo la poesía clásica en una creación musical propia. Esta propuesta muestra cómo los textos literarios pueden actualizarse mediante la voz, la composición, la grabación y la producción digital."
+            ]
+          }
         ],
         tags: ["Negra sombra", "Bécquer", "La Tachi"],
         photos: [],
@@ -224,17 +234,18 @@ const pages = {
       {
         id: "rap",
         title: "Rap recitado",
-        summary: "El alumnado ha trabajado el rap como forma actual de expresión oral y musical, creando canciones propias y explorando ritmo, palabra, rima e interpretación.",
+        summary: "El alumnado ha trabajado el rap como forma actual de expresión oral, rítmica y musical.",
         tradition: "La oralidad, la creatividad verbal y la creación musical compartida.",
-        present: "La sección reúne experiencias desarrolladas con La Tachi y con la Asociación Batalla de Gallos, acercando al alumnado a formas actuales de creación verbal, rítmica y escénica.",
-        result: "Aunque no parte directamente de una tradición concreta, conecta con el proyecto mediante la palabra, la creatividad y lenguajes cercanos al alumnado.",
+        present: "La actividad se ha desarrollado con la colaboración de la Asociación Batalla de Gallos, acercando al alumnado a formas actuales de creación verbal, rítmica y escénica.",
+        result: "El rap se convierte en una herramienta de expresión, reflexión y conciencia social conectada con el espíritu del proyecto.",
         detailsTitle: "Rap recitado",
         details: [
-          "En esta actividad, el alumnado ha trabajado el rap como forma actual de expresión oral y musical. A partir de varias propuestas de letras, los propios alumnos y alumnas han creado sus canciones, explorando el ritmo, la palabra, la rima y la interpretación.",
-          "La sección recoge diferentes experiencias de creación vinculadas al rap. Una de ellas se ha desarrollado con la colaboración de La Tachi, y otra con la participación de la Asociación Batalla de Gallos, acercando al alumnado a formas actuales de creación verbal, rítmica y escénica.",
-          "Aunque estas propuestas no parten directamente de una tradición concreta, sí conectan con el espíritu del proyecto: trabajar la oralidad, la creatividad, la palabra y la creación musical desde lenguajes cercanos al alumnado."
+          "En esta actividad, el alumnado ha trabajado el rap como forma actual de expresión oral, rítmica y musical. A partir de distintas propuestas de letras, los alumnos y alumnas han creado e interpretado mensajes propios, explorando la rima, el ritmo, la palabra y la presencia escénica.",
+          "La actividad se ha desarrollado con la colaboración de la Asociación Batalla de Gallos, que ha acercado al alumnado a una forma de creación verbal muy vinculada a los lenguajes actuales.",
+          "Los trabajos realizados han abordado temas de gran importancia educativa, como la prevención del consumo de drogas, las adicciones y la violencia. De este modo, el rap se convierte en una herramienta de expresión, reflexión y conciencia social.",
+          "Aunque esta propuesta no parte directamente de una tradición musical concreta, sí conecta con el espíritu de “De la tradición al Remix”: trabajar la oralidad, el ritmo y la creación musical desde lenguajes cercanos al alumnado."
         ],
-        tags: ["Rap", "La Tachi", "Batalla de Gallos"],
+        tags: ["Rap", "Batalla de Gallos", "Conciencia social"],
         photos: [],
         videos: [
           "rap y palabra/b1be4103-325e-48ed-8dab-ed54cb6b302d.MP4",
@@ -413,6 +424,10 @@ const pages = {
         tradition: "Canciones, voces, instrumentos y repertorios trabajados en el proyecto, preparados para registrarse y transformarse con herramientas sonoras actuales.",
         present: "El aula se organiza como un pequeño estudio: microfonía, interfaz, mesa, Audacity, BandLab, REAPER, guías rápidas, plantillas de sesión y rúbricas competenciales.",
         result: "SoundLab da soporte técnico-pedagógico al proyecto, permite crear materiales reutilizables y reparte roles de sonido, interpretación, guion, edición y coordinación.",
+        detailsTitle: "Materiales del SoundLab",
+        details: [
+          "En este enlace se recogen materiales, grabaciones y recursos vinculados al trabajo desarrollado en el SoundLab, el grupo de trabajo creado desde el Departamento de Música para aprender a grabar, editar y experimentar con herramientas digitales, sonido, luces y producción musical."
+        ],
         tags: ["SoundLab", "Podcast", "DAW", "REAPER"],
         photos: [
           "soundlabarroyoharnina/IMG_9258",
@@ -426,6 +441,12 @@ const pages = {
           "soundlabarroyoharnina/IMG_9485.MOV",
           "soundlabarroyoharnina/IMG_9613.MOV",
           "soundlabarroyoharnina/IMG_9615.MOV"
+        ],
+        links: [
+          {
+            label: "Abrir materiales del SoundLab",
+            href: "https://drive.google.com/drive/folders/1EMVbCtX9R5pCetQll8Z06K5iQfCeZCbI?usp=sharing"
+          }
         ]
       }
     ]
@@ -436,7 +457,7 @@ function renderHome() {
   return `
     <section class="hero" style="--hero-image: url('${photo("Portada")}')">
       <div class="hero__content">
-        <p class="eyebrow">Proyecto de innovación educativa · 3º ESO</p>
+        <p class="eyebrow">Proyecto de innovación educativa · Departamento de Música</p>
         <h1>De la tradición al Remix</h1>
         <p class="hero__lead">Músicas que viajan y se transforman: una memoria visual y pedagógica para rescatar canciones, bailes y repertorios tradicionales y reinterpretarlos con lenguajes actuales.</p>
         <div class="hero__actions">
@@ -452,8 +473,8 @@ function renderHome() {
         <div>
           <p class="eyebrow">Contexto del proyecto</p>
           <h2 id="proyecto-title">Un puente entre memoria cultural y creatividad juvenil</h2>
-          <p>El IES Arroyo Harnina propone acercar el patrimonio musical a las nuevas generaciones conectando tradición oral, folclore, danza y repertorios locales con rap, beatbox, electrónica, grabación y edición audiovisual.</p>
-          <p>La web organiza cada actividad con su contexto, la tradición trabajada, su actualización, las evidencias y el aprendizaje final. Así, cada sección funciona como una memoria completa del proceso.</p>
+          <p>Proyecto de innovación educativa desarrollado desde el Departamento de Música del IES Arroyo Harnina, con participación de alumnado de distintos grupos y niveles.</p>
+          <p>La web organiza cada actividad con su contexto, la tradición trabajada, su actualización y el aprendizaje final. Así, cada sección funciona como una memoria completa del proceso.</p>
         </div>
         <div class="metrics" aria-label="Datos clave del proyecto">
           <div class="metric"><strong>10+</strong><span>canciones y repertorios a recopilar</span></div>
@@ -479,7 +500,7 @@ function renderHome() {
       <div class="content-block">
         <p class="eyebrow">Cierre</p>
         <h2>La tradición no se conserva quieta: se aprende cuando vuelve a sonar.</h2>
-        <p>Este proyecto convierte el aula en un espacio de investigación, interpretación y creación compartida. Las evidencias reunidas muestran cómo el alumnado puede cuidar el patrimonio y, al mismo tiempo, transformarlo con su propio lenguaje.</p>
+        <p>Este proyecto convierte el aula en un espacio de investigación, interpretación y creación compartida. Los trabajos reunidos muestran cómo el alumnado puede cuidar el patrimonio y, al mismo tiempo, transformarlo con su propio lenguaje.</p>
       </div>
     </section>
   `;
@@ -536,7 +557,6 @@ function renderPageIntro(page) {
 }
 
 function renderSubsection(item) {
-  const total = item.photos.length + item.videos.length + (item.audios?.length || 0);
   return `
     <article class="subsection" id="${item.id}">
       <div class="subsection__header">
@@ -546,7 +566,6 @@ function renderSubsection(item) {
           <p>${item.summary}</p>
           <div class="subsection__meta">
             ${item.tags.map((tag) => `<span class="pill">${tag}</span>`).join("")}
-            <span class="pill">${total ? `${total} evidencias` : "Sin archivos aún"}</span>
           </div>
         </div>
         <div>
@@ -556,11 +575,26 @@ function renderSubsection(item) {
         </div>
       </div>
       ${renderDetails(item)}
+      ${renderStories(item)}
       ${renderLinks(item)}
       ${renderProgram(item)}
-      ${item.evidenceNote ? `<aside class="evidence-note"><strong>Primera evidencia del proceso</strong><p>${item.evidenceNote}</p></aside>` : ""}
+      ${item.processNote ? `<aside class="process-note"><strong>Primera grabación del proceso</strong><p>${item.processNote}</p></aside>` : ""}
       ${renderGallery(item)}
     </article>
+  `;
+}
+
+function renderStories(item) {
+  if (!item.stories?.length) return "";
+  return `
+    <div class="story-grid">
+      ${item.stories.map((story) => `
+        <article class="story-block">
+          <h3>${story.title}</h3>
+          ${story.paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join("")}
+        </article>
+      `).join("")}
+    </div>
   `;
 }
 
@@ -612,7 +646,7 @@ function renderGallery(item) {
   }
 
   return `
-    <div class="media-grid" aria-label="Evidencias de ${item.title}">
+    <div class="media-grid" aria-label="Galería de ${item.title}">
       ${item.photos.map((path, index) => photoCard(path, `${item.title} · foto ${index + 1}`)).join("")}
       ${item.videos.map((path, index) => videoCard(path, `${item.title} · vídeo ${index + 1}`)).join("")}
       ${(item.audios || []).map((audio, index) => audioCard(audio, `${item.title} · audio ${index + 1}`)).join("")}
