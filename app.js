@@ -466,9 +466,9 @@ function renderHome() {
         <h1>De la tradición al Remix</h1>
         <p class="hero__lead">Músicas que viajan y se transforman: una memoria visual y pedagógica para rescatar canciones, bailes y repertorios tradicionales y reinterpretarlos con lenguajes actuales.</p>
         <div class="hero__actions">
-          <a class="button button--liquid" href="#inicio/mapa-secciones">Explorar tradiciones</a>
+          <a class="button button--outline" href="#inicio/mapa-secciones">Explorar tradiciones</a>
           <a class="button button--outline" href="#musicas-viajan">Ver músicas que viajan</a>
-          <a class="button button--accent" href="#soundlab">Entrar al SoundLab</a>
+          <a class="button button--outline" href="#soundlab">Entrar al SoundLab</a>
         </div>
       </div>
     </section>
