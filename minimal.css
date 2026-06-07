@@ -68,6 +68,17 @@ body {
   box-shadow: 0 18px 50px rgba(24, 24, 27, 0.12);
 }
 
+@media (min-width: 1251px) {
+  .submenu::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 100%;
+    left: 0;
+    height: 10px;
+  }
+}
+
 .hero {
   min-height: calc(94vh - var(--header-height));
   background-image:
