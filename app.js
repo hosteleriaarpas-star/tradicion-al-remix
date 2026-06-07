@@ -48,7 +48,9 @@ const pages = {
           "Navidad/IMG_3935.MOV",
           "Navidad/IMG_3936.MOV",
           "Navidad/IMG_3937.MOV",
-          "Navidad/Residencia de ancianos/IMG_5054.mov"
+          "Navidad/Residencia de ancianos/IMG_5054.mov",
+          "Navidad/VIDEO-2026-06-07-11-23-20.mp4",
+          "Navidad/VIDEO-2026-06-07-11-30-35.mp4"
         ]
       },
       {
@@ -464,9 +466,9 @@ function renderHome() {
         <h1>De la tradición al Remix</h1>
         <p class="hero__lead">Músicas que viajan y se transforman: una memoria visual y pedagógica para rescatar canciones, bailes y repertorios tradicionales y reinterpretarlos con lenguajes actuales.</p>
         <div class="hero__actions">
-          <a class="button" href="#inicio/mapa-secciones">Explorar tradiciones</a>
-          <a class="button button--light" href="#musicas-viajan">Ver músicas que viajan</a>
-          <a class="button button--ghost" href="#soundlab">Entrar al SoundLab</a>
+          <a class="button button--liquid" href="#inicio/mapa-secciones">Explorar tradiciones</a>
+          <a class="button button--outline" href="#musicas-viajan">Ver músicas que viajan</a>
+          <a class="button button--accent" href="#soundlab">Entrar al SoundLab</a>
         </div>
       </div>
     </section>
