@@ -33,6 +33,18 @@ body {
   font-size: 0.94rem;
 }
 
+.brand__logo,
+.brand__home {
+  display: inline-flex;
+  align-items: center;
+  color: #18181b;
+  text-decoration: none;
+}
+
+.brand__home {
+  white-space: nowrap;
+}
+
 .brand__mark {
   width: 62px;
   height: 50px;
