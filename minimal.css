@@ -391,6 +391,10 @@ body {
   cursor: default;
 }
 
+.lightbox.is-static .lightbox__nav {
+  display: none;
+}
+
 .lightbox__close {
   z-index: 3;
 }

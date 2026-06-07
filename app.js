@@ -735,18 +735,22 @@ function showLightboxItem() {
     image.alt = item.label || "Imagen ampliada";
   }
 
+  lightbox.classList.toggle("is-static", lightboxItems.length < 2);
   lightbox.querySelector(".lightbox__nav--previous").disabled = lightboxIndex === 0;
   lightbox.querySelector(".lightbox__nav--next").disabled = lightboxIndex === lightboxItems.length - 1;
 }
 
 function openLightbox(trigger) {
   const gallery = trigger.closest(".media-grid");
-  lightboxItems = [...gallery.querySelectorAll("[data-viewer-src]")].map((item) => ({
+  const galleryItems = trigger.dataset.viewerType === "image"
+    ? [...gallery.querySelectorAll('[data-viewer-type="image"]')]
+    : [trigger];
+  lightboxItems = galleryItems.map((item) => ({
     src: item.dataset.viewerSrc,
     type: item.dataset.viewerType,
     label: item.dataset.viewerLabel
   }));
-  lightboxIndex = [...gallery.querySelectorAll("[data-viewer-src]")].indexOf(trigger);
+  lightboxIndex = galleryItems.indexOf(trigger);
   const lightbox = ensureLightbox();
   showLightboxItem();
   lightbox.hidden = false;
