@@ -2,6 +2,7 @@ const photo = (path) => encodeURI(`assets/media/photos/${path}.jpg`);
 const poster = (path) => encodeURI(`assets/media/posters/${path.replace(/\.[^.]+$/, "")}.jpg`);
 const mediaFile = (path) => encodeURI(`assets/media/videos/${path.replace(/\.[^.]+$/, ".mp4")}`);
 const audioFile = (path) => encodeURI(`assets/media/audio/${path}`);
+let revealObserver;
 
 const fixedSteps = [
   ["Presentación", "Qué se hizo y por qué forma parte del proyecto."],
@@ -749,6 +750,7 @@ function render() {
   app.innerHTML = pageKey === "inicio" ? renderHome() : renderPage(pageKey);
   updateActiveNav(pageKey);
   closeMenu();
+  initializeReveals();
 
   if (anchor) {
     requestAnimationFrame(() => {
@@ -757,6 +759,48 @@ function render() {
   } else {
     window.scrollTo(0, 0);
   }
+}
+
+function initializeReveals() {
+  revealObserver?.disconnect();
+  const targets = document.querySelectorAll([
+    ".hero .eyebrow",
+    ".hero h1",
+    ".hero__actions .button",
+    ".hero__lead",
+    ".section-hero__inner > *",
+    ".intro-grid > *",
+    ".page-intro .content-block > *",
+    ".link-card",
+    ".section-nav a",
+    ".subsection__header > *",
+    ".activity-story",
+    ".story-block",
+    ".program",
+    ".resource-links",
+    ".process-note",
+    ".media-card"
+  ].join(","));
+
+  targets.forEach((target, index) => {
+    target.classList.add("reveal");
+    target.style.setProperty("--reveal-delay", `${Math.min(index % 6, 5) * 55}ms`);
+  });
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    targets.forEach((target) => target.classList.add("is-visible"));
+    return;
+  }
+
+  revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -5% 0px" });
+
+  targets.forEach((target) => revealObserver.observe(target));
 }
 
 function updateActiveNav(pageKey) {
