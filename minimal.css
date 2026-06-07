@@ -367,13 +367,6 @@ body {
   font-size: 1rem;
 }
 
-.lightbox__video {
-  width: min(1120px, 100%);
-  max-height: 88vh;
-  background: #000;
-  border-radius: 6px;
-}
-
 .lightbox__nav {
   position: fixed;
   z-index: 2;

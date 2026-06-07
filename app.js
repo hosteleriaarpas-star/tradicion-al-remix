@@ -675,7 +675,7 @@ function videoCard(path, label) {
   return `
     <figure class="media-card media-card--video">
       <div class="media-card__frame">
-        <button class="media-card__expand" type="button" data-viewer-src="${src}" data-viewer-type="video" data-viewer-label="${label}" aria-label="Abrir ${label} en grande" title="Abrir en grande">⛶</button>
+        <button class="media-card__expand" type="button" data-video-fullscreen aria-label="Abrir ${label} en pantalla completa" title="Pantalla completa">⛶</button>
         <video controls preload="none" poster="${poster(path)}" aria-label="${label}">
           <source src="${src}">
         </video>
@@ -707,7 +707,6 @@ function ensureLightbox() {
       <button class="lightbox__close" type="button" aria-label="Cerrar multimedia ampliada">Cerrar</button>
       <button class="lightbox__nav lightbox__nav--previous" type="button" aria-label="Ver multimedia anterior">←</button>
       <img class="lightbox__image" alt="">
-      <video class="lightbox__video" controls preload="none" hidden></video>
       <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Ver multimedia siguiente">→</button>
     </div>
   `);
@@ -718,22 +717,8 @@ function showLightboxItem() {
   const lightbox = ensureLightbox();
   const item = lightboxItems[lightboxIndex];
   const image = lightbox.querySelector(".lightbox__image");
-  const video = lightbox.querySelector(".lightbox__video");
-  video.pause();
-  video.removeAttribute("src");
-
-  if (item.type === "video") {
-    image.hidden = true;
-    image.removeAttribute("src");
-    video.hidden = false;
-    video.src = item.src;
-    video.setAttribute("aria-label", item.label);
-  } else {
-    video.hidden = true;
-    image.hidden = false;
-    image.src = item.src;
-    image.alt = item.label || "Imagen ampliada";
-  }
+  image.src = item.src;
+  image.alt = item.label || "Imagen ampliada";
 
   lightbox.classList.toggle("is-static", lightboxItems.length < 2);
   lightbox.querySelector(".lightbox__nav--previous").disabled = lightboxIndex === 0;
@@ -742,9 +727,7 @@ function showLightboxItem() {
 
 function openLightbox(trigger) {
   const gallery = trigger.closest(".media-grid");
-  const galleryItems = trigger.dataset.viewerType === "image"
-    ? [...gallery.querySelectorAll('[data-viewer-type="image"]')]
-    : [trigger];
+  const galleryItems = [...gallery.querySelectorAll('[data-viewer-type="image"]')];
   lightboxItems = galleryItems.map((item) => ({
     src: item.dataset.viewerSrc,
     type: item.dataset.viewerType,
@@ -768,9 +751,6 @@ function moveLightbox(direction) {
 function closeLightbox() {
   const lightbox = document.querySelector(".lightbox");
   if (!lightbox || lightbox.hidden) return;
-  const video = lightbox.querySelector(".lightbox__video");
-  video.pause();
-  video.removeAttribute("src");
   lightbox.hidden = true;
   lightbox.querySelector(".lightbox__image").removeAttribute("src");
   lightboxItems = [];
@@ -783,8 +763,7 @@ function enterVideoFullscreen(video) {
     video.webkitEnterFullscreen();
     return;
   }
-  const target = video.closest(".media-card__frame") || video;
-  target.requestFullscreen?.();
+  video.requestFullscreen?.();
 }
 
 function currentRoute() {
@@ -891,6 +870,13 @@ document.querySelectorAll(".nav-item").forEach((item) => {
 });
 
 document.addEventListener("click", (event) => {
+  const fullscreenButton = event.target.closest("[data-video-fullscreen]");
+  if (fullscreenButton) {
+    event.preventDefault();
+    enterVideoFullscreen(fullscreenButton.closest(".media-card__frame")?.querySelector("video"));
+    return;
+  }
+
   const viewerTrigger = event.target.closest("[data-viewer-src]");
   if (viewerTrigger) {
     event.preventDefault();
